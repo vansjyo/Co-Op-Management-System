@@ -1,5 +1,9 @@
 # Co-Op-Management-System
 
+## References
+* [W3Schools](https://www.w3schools.com/) - HTML, CSS, JavaScript, BootStrap
+* [Materialize CSS](http://materializecss.com/) - Library to use for designing.
+
 ## Aim 
 * To build an online system that helps us to buy, pay and order things from the Co-Op Society.
 * The idea is to transform the coop into an online shopping market. 
@@ -28,7 +32,7 @@ cd Co-Op-Management-System
 - This repository was created and currently maintained by @[salman-bhai](https://github.com/salman-bhai).
 
 ## Concepts to be learned: 
-* Website Designing, html, css, Javascript
+* Website Designing, HTML, CSS, Javascript
 * Backend: Django/ RoR
  
 ## Final output: 
