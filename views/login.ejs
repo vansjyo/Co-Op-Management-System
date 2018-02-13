@@ -1,0 +1,123 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+	<title>LOGIN | NITK ONLINE DELIVERY</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+	<meta name="description" content="online coop service nitk">
+	<meta name="keywords" content="nitk online coop">
+
+	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+
+</head>
+
+<body class="grey lighten-1">
+
+	<!-- header  -->
+	<header> 
+		<div class="navbar-fixed bg">
+			<nav class="bg"> 
+				<div class="nav-wrapper"> 
+					<a class="button-collapse left" href="#" data-activates="slide-out"><i class="material-icons">view_list</i></a> <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
+					<h4 class="left hd space">NITK COOP </h4>
+				</div> 
+			</nav>
+		</div>
+	</header>
+
+	<!-- ////header -->
+
+	<!-- side nav menu -->
+	<ul id="slide-out" class="side-nav">
+		<li class="white">
+			<div class="userView">
+				<div class="background">
+					<img src="/assets/images/nitklogo.jpg" width="100%">
+				</div>
+				<a href="https://www.nitk.ac.in" class="center">Nitk Surathkal</a>
+			</div>
+		</li>
+		<li><a href="/login" class="waves-effect space">LOG IN</a></li>
+		<li><div class="divider"></div></li>
+		<li><a href="/signup" class="waves-effect space">SIGN UP</a></li>
+		<li><div class="divider"></div></li>
+		<li><a href="/contact" class="waves-effect space">CONTACT</a></li>
+		<li><div class="divider"></div></li>
+		<li><a class="waves-effect space" href="/help">HELP</a></li>
+	</ul>
+	<!-- ////side nav menu -->
+
+	<!-- ////side nav menu -->
+	<br><br><br>
+
+	<main>
+		<div class="div3"><img src="/assets/images/back.jpg" id="backimg" width="100%" style="display: none"></div>
+
+		<!-- show any messages that come back with authentication -->
+		<% if (messages.success) { %>
+		<div class="card-panel blue lighten-4 black-text text-darken-4"><%= message.success %></div>
+		<% } %>
+
+        <% if(messages.error){ %>
+		<div class="card-panel red lighten-4 red-text text-darken-4"><%= messages.error %></div>
+		<% } %>
+
+		<% if(messages.loginMessage){ %>
+		<div class="card-panel red lighten-4 red-text text-darken-4"><%= messages.loginMessage %></div>
+		<% } %>
+
+
+
+
+		<div class="row coll container">
+			<div class="col s12 m6 teal lighten-4">
+				<h4 class="black-text thicker"><i class="material-icons grey-text text-darken-3 medium">person_pin</i>Log In<br></h4>
+				<form action="/login" method="post" class="coll">
+					<div class="input-field">
+						<input name="email" type="text" class="validate">
+						<label for="email">Username(email)</label>
+					</div>
+					<div class="input-field">
+						<input name="password" type="password" class="validate">
+						<label for="password">Password</label>
+					</div>
+						<button class="btn waves-effect waves-light" type="submit" name="action">Log In
+							<i class="material-icons right">send</i>
+						</button>
+				</form>
+
+				<p>Need an account? <a href="/signup">Signup</a></p>
+				<p>Or go <a href="/">home</a>.</p>
+				<p class="right"><a href="/forgot">forgot password?</a></p>
+			</div>
+			<div class="col s12 m6">
+				<img src="/assets/images/Collage.jpg" height="350px" width="100%">
+			</div><br>
+		</div>
+
+		<br><br><br>
+	</main>
+
+
+	<!-- footer -->
+	<% include partials/footer.ejs %>
+	<!-- ////footer -->
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+	<script src="/assets/js/jquery.flexslider.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+</body>
+</html>

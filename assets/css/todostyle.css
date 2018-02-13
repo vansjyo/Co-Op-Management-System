@@ -1,0 +1,92 @@
+body{
+    background: #090d13;
+    font-family: tahoma;
+    color: #989898;
+}
+
+#todo-table{
+    position: relative;
+    width: 95%;
+    background:  #0d1521;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#todo-table form:after{
+    margin: 0;
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+
+button{
+    padding: 20px;
+    width: 30%;
+    float: left;
+    background: #23282e;
+    border: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#ullist{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#ullist li{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: arial;
+    font-size: 20px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+#ullist li:hover{
+    text-decoration: line-through;
+    background: rgba(0,0,0,0.2);
+}
+
+#todohead{
+    background-color: #607d8b  !important;
+}
+
+h1{
+    background: url(/assets/logo.png) no-repeat center;
+    margin-bottom: 0;
+    text-indent: -10000px;
+}
+
+.amatic{
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-decoration: none;
+}
+.acme{
+    font-family: 'Acme', sans-serif;
+}
+
+.buynow{
+  width:100%;
+  letter-spacing: 8px;
+}
+.hd{
+  font-family:'Suez One', serif;
+  margin-left:15%;
+  color:#E0F7FA ;}
+.space{
+  letter-spacing:1px;}
+
+.nav-wrapper{
+    background:  #0d1521;
+
+}
