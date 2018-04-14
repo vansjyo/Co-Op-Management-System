@@ -12,9 +12,9 @@
 
 ## About
 - A simple web app used to book buy/sell stuff.
-- **Back-End**: Ruby on Rails/ Django
+- **Back-End**: Nodejs
 - **Front-End**: HTML, CSS and JavaScript
-- **Database**: SQLite/ Firebase
+- **Database**: MongoDB
 
 ## Installation
 - Fork this project to your GitHub account.
