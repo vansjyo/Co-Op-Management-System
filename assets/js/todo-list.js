@@ -6,7 +6,9 @@ $(document).ready(function(){
       var cartquantity_left= parseInt($(this).siblings("span.quantity_left").text());
       var cartitem_price = parseInt($(this).siblings("span.item_price").text());
       var cartitem_no = $(this).siblings("span.item_no").text();
-      var todo = {no: cartitem_no ,item: cartitem_name, quantity: cartquantity_left, price: cartitem_price};
+      
+
+      var todo = {no: cartitem_no ,item: cartitem_name, quantity: cartquantity_left, price: cartitem_price, status :"not available" };
 
       $.ajax({
         type: 'POST',
@@ -17,9 +19,7 @@ $(document).ready(function(){
           location.reload();
         }
       });
-
       return false;
-
   });
 
   $('li#delete').on('click', function(){

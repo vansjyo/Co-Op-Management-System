@@ -1,9 +1,9 @@
 body{
-    background: #090d13;
-    font-family: tahoma;
+    background: #0d1521;
     color: #989898;
 }
-
+.margin{
+   margin-top:30px;}
 #todo-table{
     position: relative;
     width: 95%;
@@ -20,7 +20,34 @@ body{
     clear: both;
 }
 
+.text{
+  color: #006064 ;
+}
+.coll{
+  padding:10px;
+}
+.material-icons{
+    vertical-align: text-bottom;
+}
+.tablesize{
+font-size:15px;
+}
+.side-nav{
+height: 100%;
+padding-bottom: 0;
+}
+.head_img{
+  vertical-align:top; 
+  margin-top:15px;
+  margin-left:4%;
+}
+.head_size{
+  font-size: 13px;
+}
 
+.size{
+    font-size:21px;
+}
 
 button{
     padding: 20px;
@@ -38,6 +65,13 @@ button{
     list-style-type: none;
     padding: 0;
     margin: 0;
+}
+.deco{
+  border-bottom-style: solid;border-radius: 5px ; border-bottom-width: 1px;
+}
+.deco1{
+  border-style: solid;border-radius: 5px ; border-width: 1px;border-color: #006064; border-collapse: separate;
+    border-spacing: 15px;
 }
 
 #ullist li{
@@ -80,8 +114,6 @@ h1{
   letter-spacing: 8px;
 }
 .hd{
-  font-family:'Suez One', serif;
-  margin-left:15%;
   color:#E0F7FA ;}
 .space{
   letter-spacing:1px;}

@@ -17,146 +17,154 @@
       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
    	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
    	<link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/modal.css">
+      <link rel="stylesheet" href="/assets/css/parallax.css">
    	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
    </head>
 
-   <body id="back">
+   <body class="grey lighten-5">
+
 
    	<!-- header  -->
    	<% include partials/header.ejs %>
    	<!-- ////header -->
-
-   	<!-- side nav menu -->
-   	<ul id="slide-out" class="side-nav">
-   		<li class="white">
-   			<div class="userView">
-   				<div class="background">
-   					<img src="/assets/images/nitklogo.jpg" width="100%">
-   				</div>
-   				<a href="https://www.nitk.ac.in"><pre>Nitk Surathkal   www.nitk.ac.in</pre></a>
-   			</div>
-   		</li>
-         <li><a href="/" class="waves-effect space">HOME</a></li>
-         <li><div class="divider"></div></li>
-         <li><a href="#services" class="waves-effect space">SERVICES</a></li>
-         <li><a href="/contact" class="waves-effect space">CONTACT</a></li>
-         <li><div class="divider"></div></li>
-         <li><a class="waves-effect space" href="/help">HELP</a></li>
-         <li><a href="/logout" class="waves-effect space">LOGOUT</a></li>
-   	</ul>
-   	<!-- ////side nav menu -->
+   	
+   <!-- side nav menu -->
+   <% include partials/slide_out_nav.ejs %>
+   <!-- ////side nav menu -->
 
    	<main>
 
-<div id="test"></div>
-   		<br><br><br>
+         <div id="test"></div>
+   		<br>
 
-   		<!-- center image -->
-   		<div class="div3"><img src="/assets/images/back.jpg" id="backimg" width="100%" style="display: none"></div>
-   		<!-- ///center image -->
+      <% if(messages.info){ %>
+      <div class="card-panel green lighten-4 black-text text-darken-4"><%= messages.info %></div>
+      <% } %>
 
 
 
+         <h3 class="coll">Categories</h3>
+         <div class="divider"></div><br>
    		<div class="container">
    			<div class="row card">
    				<div class="col m3 s12">
-   					<a href="/eat-chips"><div class="card small teal lighten-2">
-   						<img src="/assets/images/food.jpg" height="60%" width="100%">
+   					<div class="card small cyan darken-3">
+   						<img id="myImg" src="/assets/images/food.jpg" alt="Eatables" height="60%" width="100%">
+                     <a href="/eat-chips">
    						<div class="card-content center">
-   							<h6 class="thicker white-text"><br>E A T A B L E S</h6>  
+   							<h6 class="white-text "><br>E A T A B L E S</h6>  
    						</div>
-   					</div></a>
+                  </a>
+   					</div>
    				</div>
    				<div class="col m3 s12">
    					<table class="striped highlight lineheight">
-   						<tr><td><h5>Eatables</h5></td></tr>
-   						<tr><td><a href="/eat-chips" class="block"> Chips</a></td></tr>
-   						<tr><td><a href="/eat-chocolates" class="block"> Chocolates</a></td></tr>
-   						<tr><td><a href="snack.html" class="block"> Daily Snacks</a></td></tr>
-   						<tr><td><a href="bisc.html" class="block"> Biscuits</a></td></tr>
-   						<tr><td><a href="pack.html" class="block"> Packed Stuff</a></td></tr>
-   						<tr><td><a href="other.html" class="block"> others</a></td></tr>
+   						<tr><td><h5 class="tent">Eatables</h5></td></tr>
+   						<tr><td><a href="/eat-chips" class="block text"> Chips</a></td></tr>
+   						<tr><td><a href="/eat-chocolates" class="block text"> Chocolates</a></td></tr>
+   						<tr><td><a href="snack.html" class="block text"> Daily Snacks</a></td></tr>
+   						<tr><td><a href="bisc.html" class="block text"> Biscuits</a></td></tr>
+   						<tr><td><a href="pack.html" class="block text"> Packed Stuff</a></td></tr>
+   						<tr><td><a href="other.html" class="block text"> others</a></td></tr>
    					</table>
    				</div>
    				<div class="col m3 s12 borderleft">
-   					<a href="eat-chips.html"><div class="card small teal lighten-2">
-   						<img src="/assets/images/dom.jpg" height="60%" width="100%">
+   					<div class="card small cyan darken-3">
+   						<img id="myImg" src="/assets/images/dom.jpg" height="60%" width="100%" alt="Home Products">
+                     <a href="/body-cleaning">
    						<div class="card-content center">
    							<h6 class="thicker white-text">H O M E<br> P R O D U C T S </h6>  
    						</div>
-   					</div></a>
+                     </a>
+   					</div>
    				</div>
    				<div class="col m3 s12">
    					<table class="striped highlight lineheight">
-   						<tr><td><h5>Home Products</h5></td></tr>
-   						<tr><td><a href="chip.html" class="block"> Cleaning</a></td></tr>
-   						<tr><td><a href="tc.html" class="block"> Sanitary</a></td></tr>
-   						<tr><td><a href="snack.html" class="block"> Storage</a></td></tr>
-   						<tr><td><a href="bisc.html" class="block"> Bathroom</a></td></tr>
-   						<tr><td><a href="pack.html" class="block"> Utensils</a></td></tr>
-   						<tr><td><a href="other.html" class="block"> others</a></td></tr>
+   						<tr><td><h5 class="tent">Home Products</h5></td></tr>
+   						<tr><td><a href="chip.html" class="block text"> Cleaning</a></td></tr>
+   						<tr><td><a href="tc.html" class="block text"> Sanitary</a></td></tr>
+   						<tr><td><a href="snack.html" class="block text"> Storage</a></td></tr>
+   						<tr><td><a href="bisc.html" class="block text"> Bathroom</a></td></tr>
+   						<tr><td><a href="pack.html" class="block text"> Utensils</a></td></tr>
+   						<tr><td><a href="other.html" class="block text"> others</a></td></tr>
+
    					</table>
    				</div>
    			</div><br>
    			<div class="row card">
    				<div class="col m3 s12">
-   					<a href="eat-chips.html"><div class="card small teal lighten-2">
-   						<img src="/assets/images/stationary.jpg" height="60%" width="100%">
+   					<div class="card small cyan darken-3">
+   						<img id="myImg" alt="Stationary Items" src="/assets/images/stationary.jpg" height="60%" width="100%">
+                     <a href="eat-chips.html">
    						<div class="card-content center">
    							<h6 class="thicker white-text">S T A T I O N A R Y<br> I T E M S</h6>  
-   						</div>
-   					</div></a>
+   						</div></a>
+   					</div>
    				</div>
    				<div class="col m3 s12">
    					<table class="striped highlight lineheight">
-   						<tr><td><h5>Stationary Items</h5></td></tr>
-   						<tr><td><a href="chip.html" class="block"> Noting Stuff</a></td></tr>
-   						<tr><td><a href="tc.html" class="block"> Pencil & Pen</a></td></tr>
-   						<tr><td><a href="other.html" class="block"> others</a></td></tr>
+   						<tr><td><h5 class="tent">Stationary Items</h5></td></tr>
+   						<tr><td><a href="chip.html" class="block text"> Noting Stuff</a></td></tr>
+   						<tr><td><a href="tc.html" class="block text"> Pencil & Pen</a></td></tr>
+   						<tr><td><a href="other.html" class="block text"> others</a></td></tr>
    					</table>
    				</div>
    				<div class="col m3 s12 borderleft">
-   					<a href="eat-chips.html"><div class="card small teal lighten-2">
-   						<img src="/assets/images/body.jpg" height="60%" width="100%">
+   					<div class="card small cyan darken-3">
+   						<img id="myImg" alt="Body Products" src="/assets/images/body.jpg" height="60%" width="100%">
+                     <a href="eat-chips.html">
    						<div class="card-content center">
    							<h6 class="thicker white-text">B O D Y<br> P R O D U C T S </h6>  
-   						</div>
-   					</div></a>
+   						</div></a>
+   					</div>
    				</div>
    				<div class="col m3 s12">
    					<table class="striped highlight lineheight">
-   						<tr><td><h5>Body Products</h5></td></tr>
-   						<tr><td><a href="chip.html" class="block"> Faceitems</a></td></tr>
-   						<tr><td><a href="tc.html" class="block"> Creams & Lotion</a></td></tr>
-   						<tr><td><a href="snack.html" class="block"> Hair Products</a></td></tr>
-   						<tr><td><a href="bisc.html" class="block"> Oils</a></td></tr>
-   						<tr><td><a href="pack.html" class="block"> Body Wash</a></td></tr>
-   						<tr><td><a href="other.html" class="block">Perfumes & Talc</a></td></tr>
-                     <tr><td><a href="other.html" class="block">Accesories & Others</a></td></tr>
+   						<tr><td><h5 class="tent">Body Products</h5></td></tr>
+   						<tr><td><a href="chip.html" class="block text"> Faceitems</a></td></tr>
+   						<tr><td><a href="tc.html" class="block text"> Creams & Lotion</a></td></tr>
+   						<tr><td><a href="snack.html" class="block text"> Hair Products</a></td></tr>
+   						<tr><td><a href="bisc.html" class="block text"> Oils</a></td></tr>
+   						<tr><td><a href="pack.html" class="block text"> Body Wash</a></td></tr>
+   						<tr><td><a href="other.html" class="block text">Perfumes & Talc</a></td></tr>
+                     <tr><td><a href="other.html" class="block text">Accesories & Others</a></td></tr>
+
    					</table>
    				</div>
    			</div><br>
    			<div class="row card">
    				<div class="col m3 s12">
-   					<a href="/eat-chips"><div class="card small teal lighten-2">
-   						<img src="/assets/images/sale2.jpg" height="60%" width="100%">
+   					<div class="card small cyan darken-3">
+   						<img id="myImg" alt="sale" src="/assets/images/sale2.jpg" height="60%" width="100%">
+                     <a href="/sale_items">
    						<div class="card-content center">
    							<h6 class="thicker white-text">F O R <br> S A L E </h6>  
-   						</div>
-   					</div></a>
+   						</div></a>
+   					</div>
    				</div>
-   				<div class="col m3 s12">
-   					<table class="striped highlight lineheight">
-   						<tr><td><h5>For Sale</h5></td></tr>
-   						<tr><td><a href="chip.html"  class="block"> Wanna put something up for sale?</a></td></tr>
-   					</table>
+   				<div class="col m9 s12">
+   						<h5 class="tent">For Sale Items</h5>
+                     <div class="divider"></div>
+                     <div class="margin coll">
+                     You now have the option of putting up items for sale.<br>You can also buy the items others have put for sale through our service. Directly contact the person and settle yourself for a quick bargain.
+                     </div><br>
+   						<div class="col m5"><a href="/for_sale_upload" class="btn block text black-text cyan darken-3">Put Item for Sale <i class="material-icons grey-text text-darken-3" style="vertical-align: top;">input</i></a></div>
+                     <div class="col m5"><a href="/sale_items" class="btn block text black-text cyan darken-3">Buy Items on Sale <i class="material-icons grey-text text-darken-3" style="vertical-align: top;">shop</i></a></div>
+
    				</div>
    			</div>
    		</div><br><br><br>
 
+
    	</main>
+      <div id="myModal" class="modal">
+  <i class="material-icons close right">close</i>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
 
    	<!-- footer -->
    	<% include partials/footer.ejs %>
@@ -164,11 +172,12 @@
 
 
    	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-   	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+   	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
       <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
    	<script src="/assets/js/jquery.flexslider.js"></script>
    	<script src="/assets/js/main.js"></script>
    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      <script src="/assets/js/modal.js"></script>
 
    </body>
    </html>

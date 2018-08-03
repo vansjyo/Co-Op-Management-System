@@ -21,38 +21,16 @@
 
 </head>
 
-<body id="back">
+<body class="grey lighten-5">
+
 
 	<!-- header  -->
 	<% include partials/adminheader.ejs %>
 	<!-- ////header -->
 
 	<!-- side nav menu -->
-	<ul id="slide-out" class="side-nav">
-		<li class="white">
-			<div class="userView">
-				<div class="background">
-					<img src="/assets/images/nitklogo.jpg" width="100%">
-				</div>
-				<a href="https://www.nitk.ac.in" class="center">Nitk Surathkal</a>
-			</div>
-		</li>
-		<li><a href="#!" class="waves-effect space">HOME</a></li>
-		<li><div class="divider"></div></li>
-		<li><a href="/categories" class="waves-effect space">SHOP NOW</a></li>
-		<li><a href="#services" class="waves-effect space">SERVICES</a></li>
-		<li><a href="/contacts" class="waves-effect space">CONTACT</a></li>
-		<li><div class="divider"></div></li>
-		<li><a class="waves-effect space" href="/logout">LOGOUT</a></li>
-		<li><a class="waves-effect space" href="/help">HELP</a></li>
-	</ul>
+	<% include partials/admin_slide_out_nav.ejs %>
 	<!-- ////side nav menu -->
-
-
-
-	<!-- center image -->
-	<div class="div3"><img src="/assets/images/back1(2).jpg" id="backimg" width="100%" style="display:none;"></div>
-	<!-- ////center image -->
 
 
 	<% if(messages.info){ %>
@@ -64,10 +42,12 @@
 	<main>
 
 		<div class="container coll margin70">
+			<h3 class="navpad">Add Item</h3>
+		    <div class="divider"></div><br>
 			<div class="row"> 
-				<div class="col s12 m6"> 
-					<form action="/additem" method="post">
-						<h4 class="thicker navpad"><i class="material-icons medium grey-text text-darken-3">add_circle</i>Add Item</h4>
+				<div class="col s12 m6 z-depth-2"> 
+					<form action="/additem" method="post" class="coll">
+
 						<div class="row">
 							<div class="input-field col s12">
 								<input type="text" name="itemname" class="validate" required>
@@ -77,7 +57,8 @@
 						<div class="row">
 							<div class="input-field col s12">
 								<input type="number" name="itemprice" class="validate" required>
-								<label>Price(rs.)</label>
+								<label>Price(&#x20B9;)</label>
+
 							</div>
 						</div> 
 						<div class="row">
@@ -88,7 +69,8 @@
 						</div>
 						<div class="row">
 							<div class="input-field col s6">
-								<select id="itemcollection" name="itemcollection">
+								<select id="itemcollection" name="itemcollection" required>
+
 									<option value="" disabled selected>Choose collection</option>
 									<option value="eatables">Eatables</option>
 									<option value="body_products">Body Products</option>
@@ -99,11 +81,29 @@
 								<label></label>
 							</div>
 							<div class="input-field col s6">
-								<select id="itemcategory" name="itemcategory">
+								<select id="itemcategory" name="itemcategory" required>
 									<option value="" disabled selected>Choose category</option>
-									<option value="1">Option 1</option>
-									<option value="2">Option 2</option>
-									<option value="3">Option 3</option>
+									<option value="chips">Chips</option>
+									<option value="chocolates">Chocolates</option>
+									<option value="daily_snacks">Daily Snacks</option>
+									<option value="biscuits">Biscuits</option>
+									<option value="ration">Ration</option>
+									<option value="packed_stuff">Packed Stuff</option>
+									<option value="noting_stuff">Noting stuff</option>
+									<option value="cleaning">Cleaning</option>
+									<option value="pencil_pen">Pencil Pen</option>
+									<option value="sanitary">Sanitary</option>
+									<option value="storage">Storage</option>
+									<option value="bathroom">Bathroom</option>
+									<option value="utensils">Utensils</option>
+									<option value="faceitems">Faceitems</option>
+									<option value="creams_lotions">Creams Lotions</option>
+									<option value="hairitems">Hairitems</option>
+									<option value="oils">Oils</option>
+									<option value="body_washs' ">Body washs' </option>
+									<option value="perfumes_talc">Perfumes talc</option>
+									<option value="accessories">accessories</option>
+
 								</select>
 								<label></label>
 							</div>
@@ -114,13 +114,13 @@
 								<label>Quantity Left or available</label>
 							</div>
 						</div><br>
-						<button class="btn waves-effect waves-light" type="submit">Add Item
+						<button class="btn waves-effect waves-light cyan darken-3" type="submit">Add Item
 							<i class="material-icons right">add</i>
 						</button>
 					</form>
 					<br>
 				</div>
-				<div class="col s12 m5"><img src="/assets/images/additem.png" width="100%">
+				<div class="col s12 m5 margin70"><img src="/assets/images/additem.png" width="100%">
 				</div>
 			</div>
 		</div>

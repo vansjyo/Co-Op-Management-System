@@ -1,0 +1,138 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+	<title>NITK COOPERATIVE SOCIETY | NITK ONLINE DELIVERY</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+	<meta name="description" content="online coop service nitk">
+	<meta name="keywords" content="nitk online coop">
+
+	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body class="cyan lighten-5">
+
+	<!-- header  -->
+	<% include partials/adminheader.ejs %>
+	<!-- ////header -->
+
+	<!-- side nav menu -->
+	<ul id="slide-out" class="side-nav">
+		<li class="white">
+			<div class="userView">
+				<div class="background">
+					<img src="/assets/images/nitklogo.jpg" width="100%">
+				</div>
+				<a href="https://www.nitk.ac.in" class="center">Nitk Surathkal</a>
+			</div>
+		</li>
+		<li><a href="/admin" class="waves-effect space">Home</a></li>
+		<li><div class="divider"></div></li>
+		<li><a href="/orderslist" class="waves-effect space">Orders List</a></li>
+		<li><a href="/itemslist" class="waves-effect space">Items List</a></li>	
+		<li><a href="/saleslist" class="waves-effect space">Sales List</a></li>
+		<li><a href="/stafflist" class="waves-effect space">Staff</a></li>
+		<li><div class="divider"></div></li>
+		<li><a href="/additem" class="waves-effect space">Add Item</a></li>
+		<li><a href="/addstaff" class="waves-effect space">Add Staff</a></li>
+		<li><a href="/deleteitem" class="waves-effect space teal darken-1">Delete Item</a></li>
+		<li><div class="divider"></div></li>
+		<li><a href="/contacts" class="waves-effect space">Contact</a></li>
+		<li><a class="waves-effect space" href="/logout">Logout</a></li>
+		<li><a class="waves-effect space" href="/help">Help</a></li>
+	</ul>
+	<!-- ////side nav menu -->
+
+
+
+	<!-- center image -->
+	<div class="div3"><img src="/assets/images/back1(2).jpg" id="backimg" width="100%" style="display:none;"></div>
+	<!-- ////center image -->
+
+
+	<% if(messages.info){ %>
+	<div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.info %></div>
+	<% } %>
+
+	<% if(messages.error){ %>
+	<div class="card-panel red lighten-4 red-text text-darken-4"><%= messages.error %></div>
+	<% } %>
+
+
+	<!-- card 01 -->
+	<main>
+
+		<div class="container coll margin70 cyan-text text-darken-4">
+			<h4 class="thicker navpad">Delete Item</h4>
+		    <div class="divider"></div><br>
+			<div class="row"> 
+				<div class="col s12 m6"> 
+					<form action="/confirm_deleteitem" method="post">
+						<h6>Are you sure you want to delete this item?</h6><br>
+						<table>
+							<tr>
+								<td>Item No.</td>
+								<td><input type="text" name="itemno" value="<%= del_item.item_no %>"></td>
+							</tr>
+							<tr>
+								<td>Item Name</td>
+								<td><%= del_item.item_name %></td>
+							</tr>
+							<tr>
+								<td>Item Price</td>
+								<td><%= del_item.item_price %></td>
+							</tr>
+							<tr>
+								<td>Item Quantity</td>
+								<td><%= del_item.item_quantity %></td>
+							</tr>
+							<tr>
+								<td>Item Sales</td>
+								<td><%= del_item.item_sales %></td>
+							</tr>
+						</table>
+						<button class="btn waves-effect waves-light" type="submit">Confirm Delete Item
+							<i class="material-icons right">content_cut</i>
+						</button>
+					</form>
+					<br>
+				</div>
+				<div class="col s12 m5"><img src="/assets/images/deleteitem.png" width="100%">
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+
+
+
+	<!-- footer -->
+	<% include partials/footer.ejs %>
+	<!-- ////footer -->
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="/assets/js/jquery.flexslider.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('select').material_select();
+		});
+	</script>
+
+</body>
+</html>

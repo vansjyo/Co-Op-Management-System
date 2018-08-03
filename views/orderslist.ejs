@@ -1,0 +1,131 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+	<title>NITK COOPERATIVE SOCIETY | NITK ONLINE DELIVERY</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+	<meta name="description" content="online coop service nitk">
+	<meta name="keywords" content="nitk online coop">
+
+	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body class="grey lighten-5">
+
+	<!-- header  -->
+	<% include partials/adminheader.ejs %>
+	<!-- ////header -->
+
+	<!-- side nav menu -->
+	<% include partials/admin_slide_out_nav.ejs %>
+	<!-- ////side nav menu -->
+
+
+	<% if(messages.info){ %>
+	<div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.info %></div>
+	<% } %>
+
+	<% if(messages.error){ %>
+	<div class="card-panel red lighten-4 red-text text-darken-4"><%= messages.error %></div>
+	<% } %>
+
+
+	<!-- card 01 -->
+	<main>
+		<style>
+		td, th {
+    padding: 3px 5px;
+}
+	</style>
+
+		<h3 class="coll margin70"> Orders List</h3>
+		<div class="divider"></div><br>
+
+		<div class="row center margin10">
+			<% for(i= orders.length-1; i>=0 ; i--){%>
+			<div class="col s12 m3">
+				<div class="card grey lighten-5 coll">
+						OrderID:
+						<div class="cyan lighten-4 order_id"><%= orders[i].order_id %></div>
+						<table class="responsive-table bordered">
+							<tr>
+								<th>Name</th>
+								<th>Mobile No.</th>
+								<th>Address</th>
+							</tr>
+							<tr>
+								<td><%= orders[i].firstname %> <%= orders[i].lastname %></td>
+								<td><%= orders[i].telephone %></td>
+								<td><%= orders[i].address %></td>
+								
+							</tr>
+							<tr>
+								<th>Item No.</th>
+								<th>Item</th>
+								<th>Quantity</th>
+							</tr>
+							<%orders[i].orderList.forEach(item => {%>
+							<tr>
+								<td><%= item.no %></td>
+								<td><%= item.item %></td>
+								<td><%= item.quantity %></td>
+							</tr>
+							<% }); %>
+							<tr>
+								<td colspan="2">Current Status</td>
+								<td><%= orders[i].status %></td>
+							</tr>
+						</table> 
+						<select id="<%= orders[i].order_id %>">
+							<option value="order placed" disabled selected>Change order status</option>
+							<option value="dispatched">Dispatched</option>
+							<option value="delivered">Delivered</option>
+							<option value="cancelled">Cancelled</option>
+						</select>
+						<a class="chip waves-effect waves-light" id="status">Send Status</a>
+						<% if(orders[i].status=="delivered"){ %> 
+						<i class="material-icons cyan-text text-darken-4">check_circle</i>
+						<% } %>
+						<% if(orders[i].status=="cancelled"){ %> 
+						<i class="material-icons red-text text-darken-4">cancel</i>
+						<% } %>
+
+				</div>
+			</div>
+			<% }%>
+		</div>
+	</main>
+
+
+
+
+	<!-- footer -->
+	<% include partials/footer.ejs %>
+	<!-- ////footer -->
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="/assets/js/jquery.flexslider.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="/assets/js/orderslist.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('select').material_select();
+		});
+	</script>
+
+</body>
+</html>

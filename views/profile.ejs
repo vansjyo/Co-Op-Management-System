@@ -16,98 +16,114 @@
    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
    	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
    	<link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/profile.css">
+    <link rel="stylesheet" href="/assets/css/parallax.css" type="text/css" />
    	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
    </head>
+   <body class="grey lighten-5">
 
-   <body id="back">
 
    	<!-- header  -->
    	<% include partials/header.ejs %>
    	<!-- ////header -->
 
-   	<!-- side nav menu -->
-   	<ul id="slide-out" class="side-nav">
-   		<li class="white">
-   			<div class="userView">
-   				<div class="background">
-   					<img src="/assets/images/nitklogo.jpg" width="100%">
-   				</div>
-   				<a href="https://www.nitk.ac.in"><pre>Nitk Surathkal   www.nitk.ac.in</pre></a>
-   			</div>
-   		</li>
-       <li><a href="/home" class="waves-effect space">HOME</a></li>
-       <li><a href="/profile" class="waves-effect space">PROFILE</a></li>
-       <li><div class="divider"></div></li>
-       <li><a href="#services" class="waves-effect space">SERVICES</a></li>
-       <li><a href="/contact" class="waves-effect space">CONTACT</a></li>
-       <li><a href="/categories" class="waves-effect space">SHOP NOW</a></li>
-       <li><div class="divider"></div></li>
-       <li><a class="waves-effect space" href="/help">HELP</a></li>
-       <li><a href="/logout" class="waves-effect space">LOGOUT</a></li>
-     </ul>
-     <!-- ////side nav menu -->
+
+   <!-- side nav menu -->
+  <% include partials/slide_out_nav.ejs %>
+  <!-- ////side nav menu -->
 
      <main>
 
-
-       <br><br><br>
-
-       <!-- center image -->
-       <div class="div3"><img src="/assets/images/back.jpg" id="backimg" width="100%" style="display: none"></div>
-       <!-- ///center image -->
+       <% if(messages.info){ %>
+  <div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.info %></div>
+  <% } %>
 
 
+       <div class="bg-img">
+         
+         <div class="row profile container pad30">
+          <div class="col s12 center margin" id="prof1"> 
+            <div class="center"><img src="/assets/images/profile.png" class="responsive"></div>
+            <div class="styleme">
+      <span class="border">PROFILE</span>
+    </div>
+    <div class="center">
+      <h4 class="grey-text text-lighten-1 profiledesk"><%= user.local.firstname %> <%= user.local.lastname %></h4>
+      <h6 class="grey-text text-lighten-1">Email:<%= user.local.email %></h6>
+      <h6 class="grey-text text-lighten-1">Phone: <%= user.local.telephone %></h6>
+      <button class="btn chip waves-effect waves-light grey-text" style="background-color:Transparent;border:1px #eeeeee solid;" id="getedit">edit info
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+
+         </div>
 
 
-       <div class="container">
-         <div class="row center">
-         <div class="col s12 m6 teal lighten-1 z-depth-4 profile pad30"> 
-           <form action="" method="post">
-             <div class="center"><i class="material-icons large pad30">account_circle</i></div><br>
-             <div class="row">
-               <div class="input-field col s6">
+         <div class="col s12 z-depth-2" style="display:none;border: 1px grey solid;padding:20px;background-color:Transparent;opacity: 0.8" id="prof2"> 
+           <form action="/profile" method="post" class="grey-text text-lighten-1">
+            <h3 class="white-text profiledesk">Edit Profile</h3>
+              First Name
+               <div class="input-field col s12">
                  <input type="text" name="firstname" class="validate center" required value="<%= user.local.firstname %>">
-               </div>
-               <div class="input-field col s6">
+               </div><br>
+               Last Name
+               <div class="input-field col s12">
                  <input type="text" name="lastname" class="validate center" required value="<%= user.local.lastname %>">
-               </div>
-             </div> 
-             <div class="row">
+               </div><br>
+              Default Address
               <div class="input-field col s12">
-                <input name="telephone" type="tel" maxlength="12" class="validate center" required value="<%= user.local.telephone %>"> 
-              </div>
-            </div><br>
-           <button class="btn waves-effect waves-light" type="submit">EDIT INFO
+                <input name="address" type="text" class="validate center" required value="<%= user.local.address %>"> 
+              </div><br>
+              
+           <button class="btn waves-effect waves-light cyan darken-3" type="submit">edit info
             <i class="material-icons right">send</i>
           </button>
         </form>
         <br>
+        <button class="btn chip waves-effect waves-light grey-text" style="background-color:Transparent;border:1px #eeeeee solid;" id="getprofile">Cancel
+      </button>
       </div>
     </div>
+  </div>
 
-      <div class="row teal lighten-1 pad30 margin70 z-depth-4 profile"> 
-        <h4 class="thicker white-text">Here are your previous orders</h4>
-          <table class="striped highlight">
+    <style>
+    td, th {
+    padding: 5px 5px;
+}
+  </style>
+      
+
+<div class="container margin70">
+      <h3 class="coll">All Previous Orders</h3>
+         <div class="divider"></div>
+       <div class="row pad30 margin profile"> 
+          <table class="highlight bordered responsive-table margin">
             <thead>
             <tr>
+              <th>Order ID</th>
               <th>Item Name</th>
               <th>Item Price</th>
               <th>Item Quantity</th>
+              <th>order status</th>
             </tr>
           </thead>
-
           <%user.local.orderList.forEach(order => {%>
             <tr>
-              <td><%= order.item_name %></td>
-              <td>Rs.<%= order.item_price %></td>
-              <td>quantity:<%= order.item_quantity %></td>
+              <td><%= order.order_id %></td>
+              <td><%= order.item %></td>
+              <td>Rs.<%= order.price %></td>
+              <td><%= order.quantity %></td>
+              <td><%= order.status %></td>
+
             </tr>
           <% });%>
         </table>
         <br>
       </div>
+    </div>
+    </div>
+
 
     </main>
 
@@ -121,6 +137,21 @@
     <script src="/assets/js/jquery.flexslider.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript">
+    if ( $(window).width() < 993){
+    document.getElementById("fav").style.display="none";}
+
+  </script>
+  <script>
+    $("button#getedit").click(function(){
+    document.getElementById("prof1").style.display="none";
+     document.getElementById("prof2").style.display="block";
+});
+     $("button#getprofile").click(function(){
+    document.getElementById("prof2").style.display="none";
+     document.getElementById("prof1").style.display="block";
+});
+  </script>
 
   </body>
   </html>

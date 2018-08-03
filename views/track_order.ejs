@@ -1,0 +1,111 @@
+   <!DOCTYPE html> 
+   <html>
+   <head>
+
+   	<title>TRACK ORDER| ONLINE DELIVERY</title>
+
+   	<meta charset="UTF-8">
+   	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+   	<meta name="description" content="online coop service nitk">
+   	<meta name="keywords" content="nitk online coop">
+
+   	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+   	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+   	<link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/profile.css">
+    <link rel="stylesheet" href="/assets/css/parallax.css" type="text/css" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  </head>
+
+  <body class="grey lighten-5">
+
+    <!-- header  -->
+    <% include partials/header.ejs %>
+    <!-- ////header -->
+
+    <!-- side nav menu -->
+    <% include partials/slide_out_nav.ejs %>
+    <!-- ////side nav menu -->
+
+    
+    <% if(messages.info){ %>
+    <div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.info %></div>
+    <% } %>
+    <% if(messages.error){ %>
+    <div class="card-panel red lighten-4 black-text text-darken-4"><%= messages.info %></div>
+    <% } %>
+
+
+    <main>
+      
+      <h3 class="coll">Orders</h3>
+      <div class="divider"></div>
+      <div class="row container pad30 profile margin z-depth-2 deco1"> 
+        <table class="highlight bordered responsive-table margin" id="ullist">
+          <% if(myorders.length == 0){ %>
+          <tr class="cyan-text text-darken-4 tent">
+              <td>You dont have any orders currently</td>
+            </tr>
+            <% }else{ %>
+          <thead>
+            <tr class="cyan-text text-darken-4 tent">
+              <td>Order Id</td>
+              <td>Item Name</td>
+              <td>Price</td>
+              <td>Quantity</td>
+              <td></td>
+            </tr>
+          </thead>
+          <% for(i= myorders.length-1; i>=0 ; i--){ %>
+          <tr id="order_info">
+            <td>Status:<%= myorders[i].status %></td>
+            <td>Order Amount: &#x20B9;<%= myorders[i].amount %></td>
+            <td></td>
+          </tr>
+          <% myorders[i].orderList.forEach(list => {%>
+          <tr class="deco1">
+            <td id="track_order_id"><%= myorders[i].order_id %></td>
+            <td><%= list.item %></td>
+            <td id="track_item_price"><%= list.price %></td>
+            <td id="track_item_quantity"><%= list.quantity %></td>
+            <td class="grey-text text-lighten-5 small_text" id="track_item_no"><%= list.no %></td>
+            <td>
+              <a class="btn waves-effect waves-light cyan darken-3 head_size" id="cancel_order">Cancel Order</a>
+            </td>
+          </tr>
+          <% });%>
+          <% }%>
+          <% } %>
+
+        </table>
+        <br>
+      </div><br>
+
+    </main>
+
+    <!-- footer -->
+    <% include partials/footer.ejs %>
+    <!-- ////footer -->
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+    <script src="/assets/js/jquery.flexslider.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/track_order.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript">
+      if ( $(window).width() < 993){
+        document.getElementById("fav").style.display="none";}
+
+      </script>
+
+    </body>
+    </html>

@@ -1,12 +1,13 @@
 
 <!-- header  -->
-
 <header>
   <div class="navbar-fixed bg">
-    <nav class="bg height">
+    <nav class="bg">
       <div class="nav-wrapper">
         <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a>
-        <h4 class="left hd space">NITK COOP </h4>
+        <img id="fav" class="left head_img" src="/assets/images/favicon.ico" width="35" height="35">
+        <span class="left hd space head_size" id="main_head">NITK Consumers Cooperative Society </span>
+
         <div class="input-field col s12" style="width:5%;display:none;margin-left:4%" id="select">
     <select id="categoryselect">
       <option value="" disabled selected>Category</option>
@@ -18,9 +19,7 @@
     </select>
   </div>
         <div id="dis"> <i class="material-icons" id="icon1">search</i> </div>
-        <ul class="right hide-on-med-and-down">
-          <li class="coll"><a href="/todo" class="btn waves-effect waves-teal left">CART<i class="material-icons">shopping_cart</i></a></li>
-        </ul>
+
       </div>
     </nav>
      
@@ -32,4 +31,10 @@
 
   </div>
 </header>
+<script type="text/javascript">
+    if ( $(window).width() < 993){
+    document.getElementById("fav").style.display="none";}
+
+  </script>
+
 <!-- ////header -->
