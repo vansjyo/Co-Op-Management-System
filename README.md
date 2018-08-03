@@ -33,7 +33,7 @@ cd Co-Op-Management-System
 
 ## Concepts to be learned: 
 * Website Designing, HTML, CSS, Javascript
-* Backend: Django/ RoR
+* Backend:  Node.js
  
 ## Final output: 
 * Online CoOp
