@@ -1,0 +1,266 @@
+#back{
+  background-color:#ECEFF1;}
+.bg{
+  background-color: #006064   !important;}
+/*//#00897B*/
+.div0{
+  background-color:#00695C;
+  width:100%;
+  height:60px;}
+.div1{
+  color:white;
+  width:100%;}
+.i1{
+  color:#f2f2f2;
+  margin-top:25px;}
+.div2{
+  margin-top:25px;}
+.slides li{
+  overflow:hidden;
+}
+.align{
+    vertical-align: text-bottom;
+}
+.side-nav{
+height: 100%;
+padding-bottom: 0;
+}
+.slides li img{
+  position:relative;
+  left:50%;
+  transform:translateX(-50%);
+}
+.grid {
+display: flex;
+flex-wrap: wrap;
+align-content: flex-start;}
+
+.profile{
+  position:relative;
+  
+
+  border-radius: 25px;
+}
+.div3{
+  text-align:center;
+  color:white; 
+  letter-spacing:15px;}
+.div4{
+  background-color:#80CBC4;}
+.div5{
+  background-color:#CFD8DC;}
+.div6{
+  background-color:#08234f;}
+.div7{
+  margin-left:12%;}
+.form1{
+  padding-top:1px;
+  }
+#search{
+  position:fixed;
+  padding-left:10px;
+  width:25%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-position: 10px 10px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  display:none;
+}
+#filter{
+  padding-left:10px;
+  width:25%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color:white;
+  background-position: 10px 10px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.material-icons{
+    display: inline-flex;
+    vertical-align: text-bottom;
+}
+.lineheight{
+  line-height:10px;
+}
+.thicker {
+    font-weight: 500;
+}
+*, ::before, ::after {
+  box-sizing: unset;
+}
+.form2{
+  width:45%;
+  float:left;
+  background-color:white;
+  height:65%;
+  margin-top:1%;
+  margin-left:10vw;}
+.fonts{
+  padding:30px;
+  margin-left:10%;}
+.coll{
+  padding:10px}
+.hd{
+  color:#E0F7FA ;}
+.deco{
+  border-style: solid;border-radius: 5px ; border-width: 1px;
+}
+.deco1{
+  border-style: solid;border-radius: 5px ; border-width: 1px;border-color:#bdbdbd;
+}
+.d-flex {
+    display:flex;
+}
+.disc{
+  list-style-type:disc;
+}
+.navpad{
+  padding-top:10px;}
+.light{
+  font-weight: lighter;}
+.space{
+  letter-spacing:1px;}
+.margin{
+   margin-top:20px;}
+.height{
+  height:10%;}
+.footer{
+  background-color: #00897B;}
+.servicepad{
+  padding:10px 5% 10px 5%;}
+#dis{
+  display:none;
+  float:right;
+  padding-top:13px;}
+.fa{
+  font-size:25px;
+  font-weight:bold;
+}
+.margin10{
+  margin-top:5px;
+}
+.margin70{
+  margin-top:70px;
+}
+.pad30{
+  padding:30px;
+}
+.borderleft{
+  border-left: 1px solid grey;
+}
+.acme{
+    font-family: 'Acme', sans-serif;
+}
+#msg{
+  position: fixed;
+        width: 20%; 
+        z-index: 2; 
+        top: 50%;
+        left: 50%;
+        margin-top: -10%; 
+        margin-left: -10%;
+        border-color:#00838f;
+        border-width:15px;
+      }
+.flexContainer {
+    display: flex;
+}
+.styleme {
+  left: 0;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.styleme span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+.inputField {
+    flex: 1;
+}
+.block{
+  display:block;
+}
+.text{
+  color: #006064 ;
+}
+
+.head_size{
+  font-size: 13px;
+}
+.head_img{
+  vertical-align:top; 
+  margin-top:15px;
+  margin-left:4%;
+}
+.nitk_size{
+  font-size: 20px;
+}
+.inline{
+  display:inline;
+}
+footer.page-footer {
+    margin-top: 0PX;
+    padding-top: 20px;
+    background-color: #ee6e73;
+}
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+.tent {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 17px "Lato", sans-serif;
+  color: #111;
+}
+.profiledesk {
+  letter-spacing: 2px;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+  font-weight: 800;
+}
+  body, html {
+
+  height: 100%;
+  margin: 0;
+    font: 400 14px/1.8 "Lato", sans-serif;
+}
+
+#ullist tr{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: arial;
+    font-size: 16px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+#ullist tr:hover{
+    background: rgba(0,0,0,0.2);
+}
+.small_text{
+  font-size: 2px;
+}
+
+
+
+/*<script>
+    $( document ).ready(function(){})
+  </script>*/
+

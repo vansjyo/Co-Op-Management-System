@@ -1,0 +1,102 @@
+   <!DOCTYPE html> 
+   <html>
+   <head>
+
+    <title>CHIPS | NITK ONLINE DELIVERY</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    <meta name="description" content="online coop service nitk">
+    <meta name="keywords" content="nitk online coop">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+    <link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/buypages.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  </head>
+
+  <body class="grey lighten-5">
+
+    <!-- header  -->
+    <% include partials/buyheader.ejs %>
+    <!-- ////header -->
+
+    <!-- side nav menu -->
+    <% include partials/sidenav.ejs %>
+
+
+    <!-- ////side nav menu -->
+
+    <main>
+
+      <!-- center image -->
+      <div class="div3"><img src="/assets/images/back.jpg" id="backimg" width="100%" style="display: none"></div>
+      <!-- ///center image -->
+
+
+      <br><br>
+
+      <% if(messages.info){ %>
+        <div class="card-panel blue lighten-4 black-text text-darken-4 acme" id="msg"><%= messages.info %><br><br>
+          <center><button class="btn waves-effect waves-teal center" onclick="fademe()">OK</button></center>
+        </div>
+      <% } %>
+
+      <h5 class="coll acme margin10 cyan-text text-darken-4"><b> CHIPS</b></h5>
+      <div class="divider"></div><br>
+
+
+      <div class="row">
+        <%chips.forEach(chip => {%>
+
+        <div class="col m3" id="items">
+          <div class="card-panel" id="me">
+            <center><img class="responsive-img" src="<%= chip.item_url %>" width="150px" height="150px"></center>
+            <div class="card-content" id="she">
+              <div class="divider"></div>
+              <div class="chip margin10">item info</div>
+              <span class="item_name"><%= chip.item_name %></span><br>
+              <div class="chip margin10">quantity left</div>
+              <span class="quantity_left orange-text"><%= chip.item_quantity %></span><br>
+              <div class="chip margin10">Price</div>
+              <span class="item_price orange-text"><%= chip.item_price %></span><br>
+              <span class="item_no white-text"><%= chip.item_no %></span>
+              <a class="chip right waves-effect waves-light teal accent-4" id="clicktoadd">Add to cart</a>
+              <br>
+            </div>
+          </div>
+        </div>
+
+        <% });%>
+      </div>
+
+    
+    </main>
+
+    <!-- footer -->
+    <% include partials/footer.ejs %>
+    <!-- ////footer -->
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+    <script src="/assets/js/jquery.flexslider.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="/assets/js/todo-list.js"></script>
+    <script>
+      $("#chips").addClass("teal");
+      $("#chips").addClass("darken-1");
+      $("#eatables").addClass("active");
+    </script>
+    
+
+  </body>
+  </html>

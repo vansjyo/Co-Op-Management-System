@@ -1,0 +1,138 @@
+   <!DOCTYPE html> 
+   <html>
+   <head>
+
+    <title>CATEGORIES | NITK ONLINE DELIVERY</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    <meta name="description" content="online coop service nitk">
+    <meta name="keywords" content="nitk online coop">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+   </head>
+
+   <body class="cyan lighten-5">
+
+    <!-- header  -->
+    <% include partials/header.ejs %>
+    <!-- ////header -->
+
+    
+   <!-- side nav menu -->
+   <% include partials/slide_out_nav.ejs %>
+   <!-- ////side nav menu -->
+
+    <main>
+
+      <div id="test"></div>
+      <br>
+
+      <!-- center image -->
+      <div class="div3"><img src="/assets/images/back.jpg" id="backimg" width="100%" style="display: none"></div>
+      <!-- ///center image -->
+
+
+      <% if(messages.info){ %>
+      <div class="card-panel green lighten-4 black-text text-darken-4"><%= messages.info %></div>
+      <% } %>
+
+
+         <h4 class="cyan-text text-darken-4 coll">Items on Sale</h4>
+         <div class="divider"></div><br>
+
+         <% sale.forEach( x=> {%>
+         <div class="col m3 s12">
+            <a href="/eat-chips">
+              <div class="card small teal lighten-2">
+              <img src="/assets/images/food.jpg" height="60%" width="100%">
+              <div class="card-content center">
+                <h6 class="thicker white-text"><br>E A T A B L E S</h6>  
+              </div>
+            </div>
+          </a>
+          </div>
+          <div class="col m3 s12">
+            <table class="striped highlight lineheight">
+              <tr><td><h5></h5></td></tr>
+              <tr><td><a href="/eat-chips" class="block text"> Chips</a></td></tr>
+              <tr><td><a href="/eat-chocolates" class="block text"> Chocolates</a></td></tr>
+              <tr><td><a href="snack.html" class="block text"> Daily Snacks</a></td></tr>
+              <tr><td><a href="bisc.html" class="block text"> Biscuits</a></td></tr>
+              <tr><td><a href="pack.html" class="block text"> Packed Stuff</a></td></tr>
+              <tr><td><a href="other.html" class="block text"> others</a></td></tr>
+            </table>
+          </div>
+          <% });%>
+
+
+            <div class="row center margin10 cyan-text text-darken-4">
+      <% sale.forEach( x=> {%>
+      <div class="col s12 m3">
+        <div class="card grey lighten-4">
+            <b>OrderID:</b>
+            <div class="teal lighten-4 order_id"><%= x._id %></div>
+            <table class="responsive-table">
+              <tr>
+                <th>Item Info</th>
+                <td><%= x.sale_name %></td>
+              </tr>
+              <tr>
+                <th>Price</th>
+                <td>&#x20B9; <%= x.sale_price %></td>
+              </tr>
+              <tr>
+                <th>Quantity</th>
+                <td><%= x.sale_quantity %></td>
+              </tr>
+              <tr>
+                <th>DOP</th>
+                <td><%= x.sale_dop %></td>
+              </tr>
+              <tr>
+                <th>Condition</th>
+                <td><%= x.sale_type %></td>
+              </tr>
+              <tr>
+                <th>Contact</th>
+                <td><%= x.sale_contact %></td>
+              </tr>
+              <tr>
+                <th>current status</th>
+                <td><%= x.sale_status %></td>
+              </tr>
+            </table> 
+        </div>
+      </div>
+      <% });%>
+    </div>
+
+
+    <br><br><br>
+
+    </main>
+
+    <!-- footer -->
+    <% include partials/footer.ejs %>
+    <!-- ////footer -->
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+      <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="/assets/js/jquery.flexslider.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+   </body>
+   </html>

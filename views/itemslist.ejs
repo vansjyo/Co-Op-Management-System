@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+	<title>NITK COOPERATIVE SOCIETY | NITK ONLINE DELIVERY</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+	<meta name="description" content="online coop service nitk">
+	<meta name="keywords" content="nitk online coop">
+
+	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body class="grey lighten-5">
+
+	<!-- header  -->
+	<% include partials/adminheader.ejs %>
+	<!-- ////header -->
+
+	<!-- side nav menu -->
+	<% include partials/admin_slide_out_nav.ejs %>
+	<!-- ////side nav menu -->
+
+	<div id="show_me_error" class="card-panel red lighten-4 red-text text-darken-4" style="display:none;">Please add a remark</div>
+
+    <% if(messages.info){ %>
+	<div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.info %></div>
+	<% } %>
+
+	<% if(messages.error){ %>
+	<div class="card-panel red lighten-4 red-text text-darken-4"><%= messages.error %></div>
+	<% } %>
+
+
+	<!-- card 01 -->
+	<main>
+
+		<div class="row pad30 margin10 z-depth-4 profile"> 
+			<h3 class="coll"> All Items List</h3>
+			<div class="divider"></div><br>
+			<input id="filter" class="col m8" type="text" placeholder=" search by item name">
+			<table class="highlight responsive-table" id="filter_table">
+				<thead>
+					<tr>
+						<th>Item No.</th>
+						<th>Name</th>
+						<th>Price(&#x20B9;)</th>
+						<th>Inventory</th>
+						<th>Item Sales</th>
+						<th>Category</th>
+						<th>Remarks for change</th>
+						<th></th>
+					</tr>
+				</thead>
+				<%items.forEach(item => {%>
+				<tr id="filter_me">
+					<td><input class="col m8 itemno" type="text" value="<%= item.item_no %>"></td>
+					<td><input class="col m8 itemname" type="text" value="<%= item.item_name %>"></td>
+					<td><input class="col m8 itemprice" type="number" value="<%= item.item_price %>"></td>
+					<td><input class="col m8 itemquantity" type="number" value="<%= item.item_quantity %>"></td>
+					<td><input class="col m8 itemsales" type="number" value="<%= item.item_sales %>"></td>
+					<td><input class="col m8 itemcategory" type="text" value="<%= item.item_category %>"></td>
+					<td><input class="col m8 itemchange" type="text" class="validate" required></td>
+					<td><a class="btn-floating waves-effect waves-light" id="edit_item"><i class="material-icons">create</i></a></td>
+				</tr>
+				<% });%>
+			</table>
+			<br>
+		</div>
+	</main>
+
+
+
+	<!-- footer -->
+	<% include partials/footer.ejs %>
+	<!-- ////footer -->
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="/assets/js/jquery.flexslider.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="/assets/js/itemslist.js"></script>
+	<script src="/assets/js/filter.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('select').material_select();
+		});
+	</script>
+
+</body>
+</html>

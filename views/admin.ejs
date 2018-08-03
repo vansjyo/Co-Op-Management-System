@@ -1,0 +1,207 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+	<title>NITK COOPERATIVE SOCIETY | NITK ONLINE DELIVERY</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+	<meta name="description" content="online coop service nitk">
+	<meta name="keywords" content="nitk online coop">
+ 
+	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+	<link rel="stylesheet" href="/assets/css/parallax.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body class="cyan lighten-5">
+
+
+	<!-- header  -->
+	<% include partials/adminheader.ejs %>
+	<!-- ////header -->
+
+	<!-- side nav menu -->
+	<% include partials/admin_slide_out_nav.ejs %>
+	<!-- ////side nav menu -->
+
+	<!-- center image -->
+	<div class="parallax img1">
+		<div class="caption">
+			<span class="border">NITK CONSUMER'S COOPERATIVE SOCIETY</span>
+		</div>
+	</div>
+	<!-- ////center image -->
+
+    <main>
+
+		<% if(messages.info){ %>
+		<div class="card-panel green lighten-4 black-text text-darken-4"><%= messages.info %></div>
+	    <% } %>
+
+
+
+		<!-- card 01 -->
+		<center>
+			<div class="container margin cyan-text text-darken-4">
+				<div class="card-content">
+					<div class="row">
+						<div class="col s12 m6 margin">
+							<div class="card z-depth-4 cyan lighten-2">
+								<div class="card-content">
+									<span class="card-title acme"><h3>Welcome</h3></span>
+									<p>To The NITK cooperative society's online service. Here you'll get everything what you had been missing for years.An online shopping store in your college.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col s12 m6 right">
+							<div class="flexslider teal lighten-3 z-depth-4">
+								<a href="/categories">
+									<ul class="slides">
+										<li>
+											<img id="myImg" src="/assets/images/sale2.jpg" alt="items for sale" />
+										</li>
+										<li>
+											<img id="myImg" src="/assets/images/food.jpg" alt="food products" />
+										</li>
+										<li>
+											<img id="myImg" src="/assets/images/dom.jpg" alt="domestic products"  />
+										</li>
+										<li>
+											<img id="myImg" src="/assets/images/stationary.jpg" alt="stationary" />
+										</li>
+										<li>
+											<img id="myImg" src="/assets/images/body.jpg" alt="body products"/>
+										</li>
+									</ul> 
+								</a>            
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col s12 m6 margin">
+							<div class="card z-depth-5 cyan lighten-2">
+								<div class="card-content">
+									<div class="card-title"><h3>Why Here?<br></h3></div>
+									<p>Did you ever feel the pain to go to the co-operative shop realising that you need something important and urgently?
+										So you're good to go here.
+									</p>  
+								</div>
+							</div>
+						</div>
+						<div class="col s12 m6">
+							<div class="flexslider z-depth-4 ">
+								<a href="/categories">
+									<ul class="slides">
+										<li>
+											<img id="myImg" src="/assets/images/onlineshop.jpg"  alt="services"/>
+										</li>
+										<li>
+											<img id="myImg" src="/assets/images/onlineshop2.jpg" alt="services" />
+										</li>
+										<li>
+											<img id="myImg" src="/assets/images/onlineshop3.jpg"  alt="services"/>
+										</li>
+										<li>
+											<img id="myImg" src="/assets/images/onlineshop4.jpg"  alt="services"/>
+										</li>
+									</ul> 
+								</a>            
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</center>
+	</main>
+
+
+	<div class="parallax img2">
+		<div class="caption">
+			<span class="border">SERVICES</span>
+		</div>
+	</div>
+
+		<!-- card 02 -->
+	<main>
+		<a name="services"></a>
+		<div class="row center container cyan-text text-darken-4 servicepad">
+			<div class="col s12 m4">
+				<div class="card z-depth-4 cyan lighten-2">
+
+					<div class="card-content">
+						<div class="card-title span1"><i class="material-icons large grey-text text-darken-3">store</i></div><br>
+						<p>This service will allow you to buy anything from co-op society without going there.</p><br>
+					</div>  
+				</div>
+			</div>
+			<div class="col s12 m4">
+				<div class="card z-depth-4 cyan lighten-2">
+
+					<div class="card-content">
+						<div class="card-title span1"><i class="material-icons large grey-text text-darken-3">shop</i></div>
+						<br><p>You just have to select out what you need to buy and simply pay and you're done.</p><br>
+					</div>
+				</div >
+			</div>
+			<div class="col s12 m4">
+				<div class="card z-depth-4 cyan lighten-2">
+					<div class="card-content">
+						<div class="card-title span1"><i class="material-icons large grey-text text-darken-3">shopping_basket</i></div>
+						<br><p>Now wait till our order arrives at your place and then you're good to go. Happy Shopping!</p> <br>  
+
+					</div>  
+				</div>
+			</div>
+		</div>
+
+		<!-- ////card 02 -->
+	</main>
+
+	<div class="parallax img3">
+		<div class="caption">
+			<span class="border">HAPPY SHOPPING</span>
+		</div>
+	</div>
+
+
+
+		
+
+
+
+
+	<!-- footer -->
+	<% include partials/footer.ejs %>
+	<!-- ////footer -->
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="/assets/js/jquery.flexslider.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		 $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+<script type="text/javascript">
+		if ( $(window).width() < 993){
+		document.getElementById("fav").style.display="none";}
+
+	</script>
+
+
+</body>
+</html>

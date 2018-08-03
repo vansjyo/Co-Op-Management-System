@@ -1,0 +1,124 @@
+body{
+    background: #0d1521;
+    color: #989898;
+}
+.margin{
+   margin-top:30px;}
+#todo-table{
+    position: relative;
+    width: 95%;
+    background:  #0d1521;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#todo-table form:after{
+    margin: 0;
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.text{
+  color: #006064 ;
+}
+.coll{
+  padding:10px;
+}
+.material-icons{
+    vertical-align: text-bottom;
+}
+.tablesize{
+font-size:15px;
+}
+.side-nav{
+height: 100%;
+padding-bottom: 0;
+}
+.head_img{
+  vertical-align:top; 
+  margin-top:15px;
+  margin-left:4%;
+}
+.head_size{
+  font-size: 13px;
+}
+
+.size{
+    font-size:21px;
+}
+
+button{
+    padding: 20px;
+    width: 30%;
+    float: left;
+    background: #23282e;
+    border: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#ullist{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.deco{
+  border-bottom-style: solid;border-radius: 5px ; border-bottom-width: 1px;
+}
+.deco1{
+  border-style: solid;border-radius: 5px ; border-width: 1px;border-color: #006064; border-collapse: separate;
+    border-spacing: 15px;
+}
+
+#ullist li{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: arial;
+    font-size: 20px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+#ullist li:hover{
+    text-decoration: line-through;
+    background: rgba(0,0,0,0.2);
+}
+
+#todohead{
+    background-color: #607d8b  !important;
+}
+
+h1{
+    background: url(/assets/logo.png) no-repeat center;
+    margin-bottom: 0;
+    text-indent: -10000px;
+}
+
+.amatic{
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-decoration: none;
+}
+.acme{
+    font-family: 'Acme', sans-serif;
+}
+
+.buynow{
+  width:100%;
+  letter-spacing: 8px;
+}
+.hd{
+  color:#E0F7FA ;}
+.space{
+  letter-spacing:1px;}
+
+.nav-wrapper{
+    background:  #0d1521;
+
+}

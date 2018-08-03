@@ -1,0 +1,150 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+	<title>NITK COOPERATIVE SOCIETY | NITK ONLINE DELIVERY</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+	<meta name="description" content="online coop service nitk">
+	<meta name="keywords" content="nitk online coop">
+
+	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body class="grey lighten-5">
+
+
+	<!-- header  -->
+	<% include partials/adminheader.ejs %>
+	<!-- ////header -->
+
+	<!-- side nav menu -->
+	<% include partials/admin_slide_out_nav.ejs %>
+	<!-- ////side nav menu -->
+
+
+	<% if(messages.info){ %>
+	<div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.info %></div>
+	<% } %>
+
+
+	<!-- card 01 -->
+	<main>
+
+		<div class="container coll margin70">
+			<h3 class="navpad">Add Item</h3>
+		    <div class="divider"></div><br>
+			<div class="row"> 
+				<div class="col s12 m6 z-depth-2"> 
+					<form action="/additem" method="post" class="coll">
+
+						<div class="row">
+							<div class="input-field col s12">
+								<input type="text" name="itemname" class="validate" required>
+								<label>Item Name<span class="right">*</span></label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input type="number" name="itemprice" class="validate" required>
+								<label>Price(&#x20B9;)</label>
+
+							</div>
+						</div> 
+						<div class="row">
+							<div class="input-field col s12">
+								<input type="text" name="itemno" class="validate" required> 
+								<label>Item No.</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s6">
+								<select id="itemcollection" name="itemcollection" required>
+
+									<option value="" disabled selected>Choose collection</option>
+									<option value="eatables">Eatables</option>
+									<option value="body_products">Body Products</option>
+									<option value="domestic_products">Domestic Products</option>
+									<option value="stationary">Stationary</option>
+									<option value="for_sale">For Sale</option>
+								</select>
+								<label></label>
+							</div>
+							<div class="input-field col s6">
+								<select id="itemcategory" name="itemcategory" required>
+									<option value="" disabled selected>Choose category</option>
+									<option value="chips">Chips</option>
+									<option value="chocolates">Chocolates</option>
+									<option value="daily_snacks">Daily Snacks</option>
+									<option value="biscuits">Biscuits</option>
+									<option value="ration">Ration</option>
+									<option value="packed_stuff">Packed Stuff</option>
+									<option value="noting_stuff">Noting stuff</option>
+									<option value="cleaning">Cleaning</option>
+									<option value="pencil_pen">Pencil Pen</option>
+									<option value="sanitary">Sanitary</option>
+									<option value="storage">Storage</option>
+									<option value="bathroom">Bathroom</option>
+									<option value="utensils">Utensils</option>
+									<option value="faceitems">Faceitems</option>
+									<option value="creams_lotions">Creams Lotions</option>
+									<option value="hairitems">Hairitems</option>
+									<option value="oils">Oils</option>
+									<option value="body_washs' ">Body washs' </option>
+									<option value="perfumes_talc">Perfumes talc</option>
+									<option value="accessories">accessories</option>
+
+								</select>
+								<label></label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input type="number"  name="itemleft" class="validate" required>
+								<label>Quantity Left or available</label>
+							</div>
+						</div><br>
+						<button class="btn waves-effect waves-light cyan darken-3" type="submit">Add Item
+							<i class="material-icons right">add</i>
+						</button>
+					</form>
+					<br>
+				</div>
+				<div class="col s12 m5 margin70"><img src="/assets/images/additem.png" width="100%">
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+
+
+
+	<!-- footer -->
+	<% include partials/footer.ejs %>
+	<!-- ////footer -->
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="/assets/js/jquery.flexslider.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('select').material_select();
+		});
+	</script>
+
+</body>
+</html>

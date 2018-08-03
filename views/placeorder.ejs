@@ -1,0 +1,131 @@
+   <!DOCTYPE html> 
+   <html>
+   <head>
+
+   	<title>PROFILE | ONLINE DELIVERY</title>
+
+   	<meta charset="UTF-8">
+   	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+   	<meta name="description" content="online coop service nitk">
+   	<meta name="keywords" content="nitk online coop">
+
+   	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+   	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+   	<link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/parallax.css">
+   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+   </head>
+
+   <body class="grey lighten-5">
+
+   	<!-- header  -->
+   	<% include partials/header.ejs %>
+   	<!-- ////header -->
+
+    <!-- side nav menu -->
+    <% include partials/slide_out_nav.ejs %>
+    <!-- ////side nav menu -->
+
+    <main>
+
+
+     <% if(messages.success){ %>
+     <div class="card-panel green lighten-4 black-text"><%= messages.error %></div>
+     <% } %>
+
+
+     <% if(messages.info){ %>
+     <div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.info %></div>
+     <% } %>
+
+
+     <% if(messages.error){ %>
+     <div class="card-panel red lighten-4 red-text text-darken-4"><%= messages.error %></div>
+     <% } %>
+
+
+     <div class="container margin70">
+      <h3>Order Summary</h3>
+      <div class="divider"></div>
+      <div class="row pad30 margin z-depth-2 profile grey lighten-4"> 
+        <table class="highlight bordered">
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Item Price</th>
+              <th>Item Quantity</th>
+              <th>Item Status </th>
+            </tr>
+          </thead>
+          <%user.local.todo.forEach(order => {%>
+          <% if(order.status !=='available'){ %>
+          <tr class="red">
+            <% } else { %>
+            <tr>
+              <% } %>
+              <td><%= order.item %></td>
+              <td>&#x20B9;<%= order.price %></td>
+              <td><%= order.quantity %></td>
+              <td><%= order.status %></td>
+            </tr>
+            <% });%>
+            <tr class="divider"></tr>
+            <tr>
+              <td><i class="material-icons">attach_money</i> YOUR AMOUNT EQUALS</td>
+              <td>&#x20B9;<%=user.local.todo[0].amount %></td>
+            </tr>
+            <tr class="divider"></tr>
+          </table>
+
+
+          <% if(user.local.todo[0].amount){ %>
+
+          <div class="col s12 m6 margin deco1">
+            <form method="post" action="/placeorder">
+              <p><i class="material-icons">input</i> Please enter a valid address for order delivery:</p>
+              <div class="input-field coll">
+                <label for="address">edit below if any change in address</label>
+                <input type="text" name="address" class="validate" value="<%=user.local.address %>" required />
+              </div>
+              <button type="submit" class="right cyan darken-3 btn waves-effect waves-light buynow">Confirm order</button>
+            </form><br><br>
+          </div>
+          <% } %>
+
+
+          <br>
+          <div class="row">
+            <a href="/todo" class="btn waves-effect waves-light buynow cyan darken-3 right">MODIFY ORDER</a>
+          </div>
+
+
+
+
+
+
+
+          <br>
+        </div>
+
+      </main>
+
+      <!-- footer -->
+      <% include partials/footer.ejs %>
+      <!-- ////footer -->
+
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+      <script src="/assets/js/jquery.flexslider.js"></script>
+      <script src="/assets/js/main.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    </body>
+    </html>
+
