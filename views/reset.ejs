@@ -1,101 +1,112 @@
-	<!DOCTYPE html> 
-	<html>
-	<head>
+<<<<<<< HEAD
+<!DOCTYPE html> 
+<html>
+<head>
 
-		<title>RESET PASSWORD | NITK ONLINE DELIVERY</title>
+	<title>FORGOT PASSWORD | NITK ONLINE DELIVERY</title>
 
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width" initial-scale="1.0">
-		<meta name="description" content="online coop service nitk">
-		<meta name="keywords" content="nitk online coop">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+	<meta name="description" content="online coop service nitk">
+	<meta name="keywords" content="nitk online coop">
 
-		<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
-		<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
-		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+	<link rel="stylesheet" href="/assets/css/parallax.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	</head>
+</head>
 
-	<body class="grey lighten-1">
+<body class="grey lighten-5">
 
-		<!-- header  -->
-		<header> 
-			<div class="navbar-fixed bg">
-				<nav class="bg"> 
-					<div class="nav-wrapper"> 
-						<a class="button-collapse left" href="#" data-activates="slide-out"><i class="material-icons">view_list</i></a> <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
-						<h4 class="left hd space">NITK COOP </h4>
-					</div> 
-				</nav>
+	<!-- header  -->
+	<header> 
+		<div class="navbar-fixed cyan darken-4">
+			<nav class="cyan darken-4"> 
+				<div class="nav-wrapper"> 
+					<a class="button-collapse left" href="#" data-activates="slide-out"><i class="material-icons">view_list</i></a>
+					<img id="fav" class="left head_img" src="/assets/images/favicon.ico" width="35" height="35">
+					<a href="/"><span class="left hd space head_size">NITK Consumers Cooperative Society </span></a>
+					<ul class="right hide-on-med-and-down"> 
+						<li><a href="/">Home</a></li> 
+						<li><a href="/login">Log In</a></li> 
+						<li><a href="/signup">Sign Up</a></li> 
+						<li><a href="/contact_us">Contact Us</a></li> 
+					</ul> 
+				</div> 
+			</nav>
+		</div>
+	</header>
+
+	<!-- ////header -->
+
+	<!-- side nav menu -->
+	<ul id="slide-out" class="side-nav">
+		<li class="white">
+			<div class="userView">
+				<div class="background">
+					<img src="/assets/images/nitklogo.jpg" width="100%">
+				</div>
+				<a href="https://www.nitk.ac.in" class="center">Nitk Surathkal</a>
 			</div>
-		</header>
+		</li>
+		<li><i class="material-icons grey-text text-darken-3">home</i><a style="display: inline;" href="/" class="waves-effect space">Home</a></li>
+		<li><i class="material-icons grey-text text-darken-3">input</i><a style="display: inline;" href="/login" class="waves-effect space">Log In</a></li>
+		<li><div class="divider"></div></li>
+		<li><i class="material-icons grey-text text-darken-3">assignment_ind</i><a style="display: inline;" href="/signup" class="waves-effect space">Sign Up</a></li>
+		<li><div class="divider"></div></li>
+		<li><i class="material-icons grey-text text-darken-3">contacts</i><a style="display: inline;" href="/contact" class="waves-effect space">Contact</a></li>
+		<li><div class="divider"></div></li>
+		<li><i class="material-icons grey-text text-darken-3">help</i><a style="display: inline;" class="waves-effect space" href="/help">Help</a></li>
+	</ul>
+	<!-- ////side nav menu -->
 
-		<!-- ////header -->
+	<main>
+		
+		<% if(messages.error){ %>
+		<div class="card-panel red lighten-4 red-text text-darken-4"><%= messages.error %></div>
+		<% } %>
 
-		<!-- side nav menu -->
-		<ul id="slide-out" class="side-nav">
-			<li class="white">
-				<div class="userView">
-					<div class="background">
-						<img src="/assets/images/nitklogo.jpg" width="100%">
+
+		<% if(messages.info){ %>
+		<div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.info %></div>
+		<% } %>
+
+
+		<center><img src="/assets/images/nitk_logo.png" height="100px"><br><h3 class="nitk_size margin20">National Institute of Technology Karnataka, Surathkal</h3></center>
+		<div class="row coll container margin70">
+			<div class="col s12 m6 deco1 z-depth-2 margin">
+				<h5 class="tent center">Forgot Password</h5>
+				<div class="divider"></div>
+				<form method="post" action="/forgot">
+					<div class="input-field">
+						<label for="email">Enter username(email)</label>
+						<input type="email" name="email" class="validate">
 					</div>
-					<a href="https://www.nitk.ac.in" class="center">Nitk Surathkal</a>
-				</div>
-			</li>
-			<li><a href="signin.html" class="waves-effect space">SIGN IN</a></li>
-			<li><div class="divider"></div></li>
-			<li><a href="contacts.html" class="waves-effect space">CONTACT</a></li>
-			<li><div class="divider"></div></li>
-			<li><a class="waves-effect space" href="#!">HELP</a></li>
-		</ul>
-		<!-- ////side nav menu -->
-
-		<!-- ////side nav menu -->
-		<br><br><br>
-
-		<main>
-			<div class="div3"><img src="/assets/images/back.jpg" id="backimg" width="100%" style="display: none"></div>
-
-
-			<% if(messages.error){ %>
-			<div class="card-panel red lighten-4 red-text text-darken-4"><%= messages.error %></div>
-			<% } %>
-
-			<% if(messages.success){ %>
-			<div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.success %></div>
-			<% } %>
-
-			<div class="row coll container">
-				<div class="col s12 m6 white">
-					<form method="post">
-						<legend>Reset Password</legend>
-						<div class="input-field">
-							<label for="password">New Password</label>
-							<input type="password" name="password" autofocus="autofocus" class="validate"/>
-						</div>
-						<button type="submit" class="btn waves-effect waves-light">Update Password</button>
-
-					</form>
-				</div>
+					<button type="submit" class="cyan darken-3 btn waves-effect waves-light">Reset Password</button>
+				</form><br>
 			</div>
+		</div>
 
-			<br><br><br>
-		</main>
+		
+		<br><br><br>
+	</main>
 
 
-		<!-- footer -->
-		<% include partials/footer.ejs %>
-		<!-- ////footer -->
+	<!-- footer -->
+	<% include partials/footer.ejs %>
+	<!-- ////footer -->
 
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
-		<script src="/assets/js/jquery.flexslider.js"></script>
-		<script src="/assets/js/main.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+	<script src="/assets/js/jquery.flexslider.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-	</body>
-	</html>
+</body>
+</html>

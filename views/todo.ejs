@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>MY CART | NITK ONLINE DELIVERY</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1.0">
+  <meta name="description" content="online coop service nitk">
+  <meta name="keywords" content="nitk online coop">
+
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/todostyle.css">
+   <link rel="stylesheet" type="text/css" href="/assets/css/parallax.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC:700" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
     <title>MY CART | NITK ONLINE DELIVERY</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" initial-scale="1.0">
@@ -18,41 +32,63 @@
 <body>
 
  <header> 
-     <div class="navbar-fixed"> 
-         <nav> 
-             <div class="nav-wrapper blue-grey darken-3"> 
-                 <a class="button-collapse left" href="#" data-activates="slide-out"><i class="material-icons">view_list</i></a> 
-                 <a href="javascript:history.back()" class="left"><i class="material-icons white-text">arrow_back</i></a>
-                 <a href="/home"><h4 class="left hd space">NITK COOP </h4></a>
-                 <ul class="right hide-on-med-and-down"> 
-                     <li><a href="/home">Home</a></li> 
-                     <li><a href="/categories">Categories</a></li> 
-                     <li><a href="/profile">Profile</a></li> 
-                     <li><a href="/logout">Logout</a></li>
-                 </ul> 
-             </div> 
-         </nav>
-     </div>
+   <div class="navbar-fixed"> 
+     <nav> 
+       <div class="nav-wrapper cyan darken-4"> 
+         <a class="button-collapse left" href="#" data-activates="slide-out"><i class="material-icons">view_list</i></a> 
+         <a id="fav1" href="javascript:history.back()" class="left"><i class="material-icons white-text">arrow_back</i></a>
+         <img id="fav" class="left head_img" src="/assets/images/favicon.ico" width="35" height="35">
+         <a href="/"><span class="left hd space head_size">NITK Consumers Cooperative Society</span></a>
+         <ul class="right hide-on-med-and-down"> 
+           <li><a href="/home" style="font-size:12px;">Home</a></li> 
+           <li><a href="/categories" style="font-size:12px;">Categories</a></li> 
+           <li><a href="/profile" style="font-size:12px;">Profile</a></li> 
+           <li><a href="#" class="dropdown-button" data-activates='dropmore' data-beloworigin="true"><i class="material-icons" style="display:inline;font-size:17px;">arrow_drop_down</i></a></li> 
+           <!-- Dropdown Structure for more-->
+           <ul id='dropmore' class='dropdown-content'>
+             <li><a href='/track_order'>Track Order</a></li>
+             <li><a href='/contact_us'>Contact</a></li>
+             <li><a href='/team'>Team</a></li>
+             <li><a href='/settings'>Accounts</a></li>
+             <li><a href='/help'>Help</a></li>
+             <li class="divider"></li>
+             <li><a href='/logout'>Logout</a></li>
+           </ul>
+         </ul> 
+       </div> 
+     </nav>
+   </div>
  </header>
 
- <ul id="slide-out" class="side-nav">
-    <li class="white">
-        <div class="userView">
-            <div class="background">
-                <img src="/assets/images/nitklogo.jpg" width="100%">
-            </div>
-            <a href="https://www.nitk.ac.in"><pre>Nitk Surathkal   www.nitk.ac.in</pre></a>
-        </div>
-    </li>
-    <li><a href="/" class="waves-effect space">HOME</a></li>
-    <li><div class="divider"></div></li>
-    <li><a href="#services" class="waves-effect space">SERVICES</a></li>
-    <li><a href="/contact" class="waves-effect space">CONTACT</a></li>
-    <li><div class="divider"></div></li>
-    <li><a class="waves-effect space" href="/help">HELP</a></li>
-    <li><a href="/logout" class="waves-effect space">LOGOUT</a></li>
+ <!-- side nav menu -->
+ <ul id="slide-out" class="side-nav" style="height: 100%;padding-bottom: 0;">
+  <li class="white">
+    <div class="userView">
+      <div class="background">
+        <img src="/assets/images/nitklogo.jpg" width="100%" height="200px">
+      </div>
+      <a href="https://www.nitk.ac.in" class="center">NITK Surathkal</a>
+    </div>
+  </li>
+  <li><div class="divider"></div></li>
+  <li><i class="material-icons grey-text text-darken-3">home</i><a style="display: inline;" href="#!" class="waves-effect space">Home</a></li>
+  <li><div class="divider"></div></li>
+  <li><i class="material-icons grey-text text-darken-3">shopping_basket</i><a href="/categories" class="waves-effect space" style="display: inline;">Shop Now</a></li>
+  <li><div class="divider"></div></li>
+  <li><i class="material-icons grey-text text-darken-3">shopping_cart</i><a href="/todo" class="waves-effect space" style="display: inline;">My Cart</a></li>
+  <li><div class="divider"></div></li>
+  <li><i class="material-icons grey-text text-darken-3">contacts</i><a href="/contacts" class="waves-effect space" style="display: inline;">Contact</a></li>
+  <li><div class="divider"></div></li>
+  <li><i class="material-icons grey-text text-darken-3">settings_power</i><a class="waves-effect space" href="/logout" style="display: inline;">Logout</a></li>
+  <li><div class="divider"></div></li>
+  <li><i class="material-icons grey-text text-darken-3">help</i><a class="waves-effect space" href="/help" style="display: inline;">Help</a></li>
+  <li><div class="divider"></div></li>
+  <li><i class="material-icons grey-text text-darken-3">settings</i><a class="waves-effect space" href="/settings" style="display: inline;">Account</a></li>
 </ul>
+<!-- ////side nav menu -->
 
+
+     
 
 <br><br>
 
@@ -66,35 +102,43 @@
 <% } %>
 
 <div id="todo-table">
-    <h3 class="acme space center"><i class="material-icons white-text medium">shopping_cart</i><br>Hi! "<%= user.local.firstname %>" Here's Your Cart </h3><br>
-    <ul id="ullist">
-        <li>
-            <span class="teal-text text-accent-4">ITEM NAME & PRICE</span>
-            <span class="teal-text text-accent-4 right">QUANTITY</span>
-            <% if(!todos.length) { %>
-            <li class="amatic"><h5>OOPS! your cart is empty :P</h5></li>
-            <% } %>
-            <%todos.forEach(item => {%>
-            <li id="delete">
-                <span class="first"><%= item.item %></span>
-                <span class="second right"><%= item.quantity %></span>
-                <span class="third"><%= item.price %></span>
-            </li>
-            <% });%>
-        </ul>
-        <br><br>
-    </div>
-    <% if(todos.length) { %>
-    <div class="row">
+  <h3 class="cyan-text text-darken-4 deco">My Cart </h3><br><br><br>
 
-        <a href="/enterOTP"><button class="btn waves-effect waves-light buynow" id="buy" type="submit">BUY NOW
-        </button></a>
-    </div>
-    <% } %><br><br><br>
+  <ul id="ullist">
+    <span class="cyan-text text-darken-4 coll"><span class="size">ITEM NAME </span> (PRICE)</span>
+    <span class="cyan-text text-darken-4 right size">QUANTITY</span>
+  <br>
+    <% if(!user.local.todo.length) { %>
+    <li><h5>OOPS! your cart is empty :P</h5></li>
+    <% } %>
+    <div class="deco1">
+    <%user.local.todo.forEach(item => { %>
+    <li id="delete" class="tablesize">
+      <span class="first tablesize"><%= item.item %></span>
+      <span class="second right tablesize"><%= item.quantity %></span>
+      (&#x20B9;<span class="third tablesize"><%= item.price %></span>)
+    </li>
+    <% });%>
+  </div>
+  </ul>
+  <br><br>
+</div>
+<% if(user.local.todo.length) { %>
+<div class="row">
+
+  <a href="/placeorder"><button class="btn waves-effect waves-light buynow cyan darken-4" id="buy" type="submit">BUY NOW
+  </button></a>
+</div>
+<% } %><br><br><br>
+    <br><br><br>
 
 
 
 </div>
+
+
+
+
 
 
 
@@ -104,6 +148,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="/assets/js/todo-list.js"></script>
 <script src="/assets/js/main.js"></script>
+<script type="text/javascript">
+  if ( $(window).width() < 993){
+    document.getElementById("fav").style.display="none";
+    document.getElementById("fav1").style.display="none";}
+
+  </script>
+
 
 </body>
 </html>

@@ -1,17 +1,16 @@
 var mongo = require('mongodb');
 
-var Server = mongo.Server,
-        Db = mongo.Db,
-        BSON = mongo.BSONPure;
+var Server = require('mongodb').Server;
+var Db = mongo.Db;
+var BSON = mongo.BSONPure;
 
 var server = new Server('localhost', 27017, {auto_reconnect: true});
-db = new Db('items', server);
-
+var db = new Db('userdb', new Server('localhost', 27017));
 
 db.open(function(err, db) {
     if (!err) {
         console.log("Connected to 'mydb' database");
-        db.collection('eatables', {strict: true}, function(err, collection) {
+        db.collection('items', {strict: true}, function(err, collection) {
             if (err) {
                 console.log("error");
             }
@@ -23,10 +22,21 @@ db.open(function(err, db) {
 exports.find = function(req, res) {
 var b=req.params.search;
 var category = req.params.categ;
-db.collection(category, function(err, collection) {
+if(category!=="all"){
+db.collection('items', function(err, collection) {
+      collection.find({item_name: new RegExp('^' + b) ,item_category: category }).toArray(function(err, items) {
+                console.log(items);
+                res.jsonp(items);
+            });
+        });
+}
+else{
+    db.collection('items', function(err, collection) {
       collection.find({item_name: new RegExp('^' + b)}).toArray(function(err, items) {
                 console.log(items);
                 res.jsonp(items);
             });
         });
+
+}
 };

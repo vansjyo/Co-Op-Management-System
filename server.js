@@ -11,6 +11,11 @@ var passport = require('passport');
 var flash = require('express-flash');
 var async = require('async');
 var crypto = require('crypto');
+var fs = require('fs');
+var path = require('path');
+var busboy = require('connect-busboy');
+ 
+app.use(busboy());
 
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
@@ -23,6 +28,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({secret: 'anystringoftext',
 				 saveUninitialized: true,
 				 resave: true}));
+
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions

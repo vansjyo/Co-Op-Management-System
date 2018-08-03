@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+	<title>NITK COOPERATIVE SOCIETY | NITK ONLINE DELIVERY</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+	<meta name="description" content="online coop service nitk">
+	<meta name="keywords" content="nitk online coop">
+
+	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body class="grey lighten-5">
+
+	<!-- header  -->
+	<% include partials/adminheader.ejs %>
+	<!-- ////header -->
+
+	<!-- side nav menu -->
+	<% include partials/admin_slide_out_nav.ejs %>
+	<!-- ////side nav menu -->
+
+	<% if(messages.info){ %>
+	<div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.info %></div>
+	<% } %>
+
+
+	<!-- card 01 -->
+	<main>
+     <div class="row pad30 margin10 z-depth-4 profile"> 
+        <h3 class="coll">Sales</h3>
+		<div class="divider"></div><br>
+          <table class="highlight responsive-table bordered cyan lighten-5 z-depth-2">
+            <thead>
+            <tr>
+              <th>Item No.</th>
+              <th>Name</th>
+              <th>Price(&#x20B9;)</th>
+              <th>Inventory(&#x20B9;)</th>
+              <th>Sales(&#x20B9;)</th>
+            </tr>
+          </thead>
+          <% var in_amount = 0; %><% var out_amount = 0;  %>
+          <%items.forEach(item => {%>
+            <tr>
+              <% var i= item.item_price*item.item_quantity; %>
+              <% var j= item.item_price*item.item_sales; %>
+              <% in_amount+=i; %>
+              <% out_amount+=j; %>
+              <td><%= item.item_no %></td>
+              <td><%= item.item_name %></td>
+              <td><%= item.item_price %></td>
+              <td><%= i %></td>
+              <td><%= j %></td>
+            </tr>
+          <% });%>
+            <tr>
+            	<td><b>Total</b></td>
+            	<td></td>
+            	<td></td>
+            	<th>&#x20B9;<%= in_amount %></th>
+            	<th>&#x20B9;<%= out_amount %></th>
+            </tr>
+        </table>
+        <br>
+      </div>
+	</main>
+
+
+
+	<!-- footer -->
+	<% include partials/footer.ejs %>
+	<!-- ////footer -->
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="/assets/js/jquery.flexslider.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="/assets/js/itemslist.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('select').material_select();
+		});
+	</script>
+
+</body>
+</html>

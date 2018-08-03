@@ -1,13 +1,15 @@
 	 <header> 
 	 <div class="navbar-fixed bg"> 
-	 <nav class="bg height"> 
+
+	 <nav class="bg"> 
 	 <div class="nav-wrapper"> 
 	 <a class="button-collapse left" href="#" data-activates="slide-out"><i class="material-icons">view_list</i></a> 
-	 <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> --> 
-	 <h4 class="left hd space">NITK COOP </h4>
+	 <img id="fav" class="left head_img" src="/assets/images/favicon.ico" width="35" height="35">
+	 <span class="left hd space head_size">NITK Consumers Cooperative Society </span>
 	 <div class="input-field col s12" style="width:5%;display:inline-flex;margin-left:4%" id="select">
-	 <select id="categoryselect">
-	 <option value="" disabled selected>Category</option>
+	 <select id="categoryselect" class="browser-default cyan darken-4 form1">
+	 <option value="all" selected>All</option>
+
 	 <option value="eatables">Eatables</option>
 	 <option value="body_products">Body products</option>
 	 <option value="for_sale">For Sale </option>
@@ -17,15 +19,17 @@
 	 </div>
 	 <div  id="dis"> <i class="material-icons" id="icon1">search</i></div> 
 	 <ul class="right hide-on-med-and-down"> 
-	 <li><a href="/home">Home</a></li> 
-	 <li><a href="#" class="dropdown-button" data-activates='dropmanage' data-beloworigin="true">MANAGE<i class="material-icons" style="display:inline;">arrow_drop_down</i></a></li> 
-	 <li><a class='dropdown-button' href='#' data-activates='droplist' data-beloworigin="true">Lists<i class="material-icons" style="display:inline;">arrow_drop_down</i></a></li>
-	 <li><a href="/profile">Profile</a></li> 
-	 <li><a href="/logout">Logout</a></li>
+
+	 <li><a href="/home" style="font-size:12px;">Home</a></li> 
+	 <li><a href="#" style="font-size:12px;" class="dropdown-button" data-activates='dropmanage' data-beloworigin="true">Manage<i class="material-icons" style="display:inline;vertical-align:top;">arrow_drop_down</i></a></li> 
+	 <li><a class='dropdown-button' style="font-size:12px;" href='#' data-activates='droplist' data-beloworigin="true">Lists<i class="material-icons" style="display:inline;vertical-align:top;">arrow_drop_down</i></a></li>
+	 <li><a href="/adminprofile" style="font-size:12px;">Profile</a></li> 
+	 <li><a href="#" class="dropdown-button" data-activates='dropmore' data-beloworigin="true"><i class="material-icons" style="display:inline;font-size:17px;vertical-align:top;">arrow_drop_down</i></a></li> 
 	 </ul> 
 	 </div> 
 	 </nav>
-	 <form class="form1"> 
+	 <form class="form1 cyan darken-4"> 
+
 	 <div class="input-field"> 
 	 <input id="search" class="searchher" type="search" placeholder="   &#x2315   Search.." onfocus="myfocus()" onblur="myblur()" required> 
 	 <div id="log"></div>
@@ -34,25 +38,38 @@
 	 </div>
 
 	 <!-- Dropdown Structure for lists-->
-	 <ul id='droplist' class='dropdown-content'>
-	 <li><a href='/orderlist'>ORDERS</a></li>
-	 <li><a href='/eatablelist'>EATABLES</a></li>
-	 <li><a href='/itemlist'>BODY</a></li>
-	 <li><a href='/itemlist'>DOMESTIC</a></li>
-	 <li><a href='/itemlist'>STATIONARY</a></li>
-	 <li><a href='/itemlist'>FOR SALE</a></li>
-	 <li class="divider"></li>
-	 <li><a href='/saleslist'>SALES</a></li>
+
+	 <ul id='droplist' style="font-size:12px;" class='dropdown-content'>
+	 <li><a href='/orderslist'>Orders List</a></li>
+	 <li><a href='/itemslist'>All Items</a></li>
+	 <li><a href='/saleslist'>Sales</a></li>
+	 <li><a href='/stafflist'>Staff</a></li>
 	 </ul>
 
 	 <!-- Dropdown Structure for manage-->
-	 <ul id='dropmanage' class='dropdown-content'>
-	 <li><a href='/categories'>Categories</a></li>
+	 <ul id='dropmanage' style="font-size:12px;" class='dropdown-content'>
 	 <li><a href='/additem'>Add item</a></li>
+	 <li><a href='/addstaff'>Add Staff</a></li>
+	 <li><a href='/deleteitem'>Delete Item</a></li>
+	 <li><a href='/deletestaff'>Delete Staff</a></li>
 	 <li class="divider"></li>
-	 <li><a href='/saleslist'>SALES</a></li>
-	 <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-	 <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
 	 </ul>
 
+	 <!-- Dropdown Structure for more-->
+	 <ul id='dropmore' class='dropdown-content'>
+	 <li><a href='/track_order'>Track Order</a></li>
+	 <li><a href='/contact_us'>Contact</a></li>
+	 <li><a href='/team'>Team</a></li>
+	 <li><a href='/settings'>Account</a></li>
+	 <li class="divider"></li>
+	 <li><a href='/logout'>Logout</a></li>
+	 </ul>
+
+
 	 </header>
+
+	 <script>
+	  $('.dropdown-button').dropdown({
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+    }
+  );</script>

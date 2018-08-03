@@ -3,9 +3,6 @@ $(window).load(function() {
   $('.flexslider').flexslider();
 });
 
-
-
-
 $('.button-collapse').sideNav({
             menuWidth: 280, // Default is 300
             edge: 'left', // Choose the horizontal origin
@@ -13,18 +10,25 @@ $('.button-collapse').sideNav({
             draggable: true // Choose whether you can drag to open on touch screens
           }
           );
-
-
-if ( $(window).width() > 993) {  
+if( $(window).width() < 1200){
+  document.getElementById("select").style.display="none";
+}
+else{
+   document.getElementById("search").style.marginLeft="38%";
+}
+if( $(window).width() < 1200  &&  $(window).width() >1024){
+  document.getElementById("search").style.marginLeft="30%";
+}
+if ( $(window).width() > 1024) {  
  document.getElementById("search").style.display="block";
- document.getElementById("search").style.marginLeft="38%";
- document.getElementById("backimg").style.height="40vw";
-
 } 
 else {
-  document.getElementById("select").style.display="none";
+ document.getElementById("main_head").innerHTML="NITK Consumer's Co-op"; 
  document.getElementById("dis").style.display="block";
- document.getElementById("backimg").style.height="70vw";
+ document.getElementById("search").style.marginLeft="30%";
+ $("div.img2").css("display", "none");
+ $("div.img3").css("display", "none");
+ $("div#foot").addClass("center");
 }
 
 $("#icon1").click(function(){
@@ -47,7 +51,7 @@ function myfocus(){
 function myblur(){
   if ( $(window).width() > 993) {  
     document.getElementById("search").style.border="1px solid #ccc";
-    document.getElementById("search").style.backgroundColor="#00897B";
+    document.getElementById("search").style.backgroundColor="#006064";
   } 
   else {
     document.getElementById("search").style.display="none";
@@ -95,7 +99,7 @@ $('.searchher').autocomplete({
                       console.log(item);
                         return {
                             label: item.item_name,
-                            value: item.item_link,
+                            value: item.item_url,
                         };
                     }));
                 },
@@ -105,6 +109,8 @@ $('.searchher').autocomplete({
             });
         },
         select: function(event, ui) {
+            $("#search").val(ui.item.label);
             window.location.assign(ui.item.value);
+            $("#search").val(ui.item.label);
         }
     });

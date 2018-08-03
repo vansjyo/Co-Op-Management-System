@@ -1,0 +1,102 @@
+   <!DOCTYPE html> 
+   <html>
+   <head>
+
+   	<title>PROFILE | ONLINE DELIVERY</title>
+
+   	<meta charset="UTF-8">
+   	<meta name="viewport" content="width=device-width" initial-scale="1.0">
+   	<meta name="description" content="online coop service nitk">
+   	<meta name="keywords" content="nitk online coop">
+
+   	<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+   	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
+   	<link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/profile.css">
+    <link rel="stylesheet" href="/assets/css/parallax.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  </head>
+
+  <body class="grey lighten-5">
+
+    <!-- header  -->
+    <% include partials/header.ejs %>
+    <!-- ////header -->
+
+    <!-- side nav menu -->
+    <% include partials/slide_out_nav.ejs %>
+    <!-- ////side nav menu -->
+
+    <main>
+
+     <% if(messages.info){ %>
+     <div class="card-panel blue lighten-4 black-text text-darken-4"><%= messages.info %></div>
+     <% } %>
+     <% if(messages.error){ %>
+     <div class="card-panel red lighten-4 red-text text-darken-4"><%= messages.error %></div>
+     <% } %>
+
+
+     <div class="container">
+       <div class="row profile pad30">
+        <h3>Account Settings</h3>
+        <div class="divider"></div><br>
+        <div class="col s12 m7 margin"> 
+          <h6 class="coll"><i class="material-icons">input</i> Change Password</h6>
+          <div class="divider"></div>
+          <form action="/changepassword" method="post" class="pad30">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="password" class="validate" name="password" minlength="4" required>
+                <label>password*</label>
+              </div>  
+            </div> 
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="password" class="validate" name="confirm_password" minlength="4" required>
+                <label>Confirm password*</label>
+              </div>  
+            </div> 
+            <button class="btn waves-effect waves-light cyan darken-3" type="submit">Change Password
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
+        </div>
+
+        <div class="col s12 m7 margin"> 
+          <h6 class="coll"><i class="material-icons">input</i> Delete Account</h6>
+          <div class="divider"></div><br>
+          <a href="/delete_account" class="pad30"><button class="btn waves-effect waves-light red lighten-1">Delete Account
+            <i class="material-icons right">cancel</i>
+          </button></a>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- footer -->
+  <% include partials/footer.ejs %>
+  <!-- ////footer -->
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+  <script src="/assets/js/jquery.flexslider.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script type="text/javascript">
+    if ( $(window).width() < 993){
+      document.getElementById("fav").style.display="none";}
+
+    </script>
+
+  </body>
+  </html>

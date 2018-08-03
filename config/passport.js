@@ -5,6 +5,7 @@ var async = require('async');
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var flash = require('express-flash');
+const SendOtp = require('sendotp');
 
 
 module.exports = function(passport) {
@@ -27,6 +28,9 @@ module.exports = function(passport) {
 		passReqToCallback: true
 	},
 	function(req, email, password, done){
+		if(req.body.password != req.body.confirm_password){
+			return done(null, false, req.flash('error', 'password and confirm password dont match'));
+		}
 		process.nextTick(function(){
 			User.findOne({'local.email': email}, function(err,user){
 				if(err)
@@ -65,8 +69,10 @@ module.exports = function(passport) {
 							newUser.local.emailConfirmExpires= Date.now() + 3600000,
 							newUser.local.firstname = req.body.firstname;
 							newUser.local.lastname = req.body.lastname;
+							newUser.local.address = req.body.address;
 							newUser.local.telephone = req.body.telephone;
-                            newUser.local.admin = false;
+							newUser.local.cart_enable = 1;
+						
 							newUser.save(function(err){
 								if(err)
 									throw err;
@@ -93,19 +99,81 @@ module.exports = function(passport) {
 
 							transporter.sendMail(mailOptions, function(err, info) {
 								if (err) {
-									console.log(error);
+									console.log(err);
 									req.flash('error', 'email is invalid');
 								}
 								console.log("email has been sent");
-								done(err, 'done');
+								done(null, newUser);
 							});
-						}
-						], function(err) {
-							if (err){console.log("error here"); return done(err); }
-							console.log("error me");
-							req.flash('info', 'a confimtaion email has been sent to your regisered email ID. click on link to authenticate before you login.');
-							return done(null);				
-						});
+						},
+						function(newUser,done) {
+							var token = Math.floor(1000 + Math.random() * 9000);
+							token = token.toString();
+							token = token.substring(-2);
+							done(err, token ,newUser);
+						},
+						function(token,newUser,done) {
+
+							newUser.local.mobileOTP=token,
+							newUser.local.mobileOTPExpires= Date.now() + 600000,
+							newUser.save(function(err){
+								if(err)
+									throw err;
+								return done(null, token, newUser);
+							});
+
+						},
+						function(token, user, done) {
+							const sendOtp = new SendOtp('187833AUFFaxWQm5a2ff60c');
+                            sendOtp.setOtpExpiry('2'); //in minutes
+                            sendOtp.send(user.local.telephone,"PRIIND", token , function (error, data, response) {
+                	        req.flash('info', 'An otp has been sent to ' + user.local.telephone + '.  Please enter for successful placing of order          ');
+                	        console.log(data);
+                	        done(null ,'done');
+                                   });
+                        }
+
+            ], function(err) {
+            	if (err){console.log("error here"); return done(err); }
+            	req.flash('info', 'A confirmtaion link has been sent to your email ID.Click on link to authenticate OTP.');
+            	return done(null, user);				
+            });
+				}
+			})
+
+		});
+	}));
+
+
+	passport.use('staff-signup', new LocalStrategy({
+		usernameField: 'email',
+		passwordField: 'password',
+		passReqToCallback: true
+	},
+	function(req, email, password, done){
+		process.nextTick(function(){
+			User.findOne({'local.email': email}, function(err, user){
+				if(err)
+					return done(err);
+				if(user){
+					return done(null, false, req.flash('error', 'That email already taken'));
+				} else {
+					var newUser = new User();
+					newUser.local.email = email;
+					newUser.local.password = newUser.generateHash(password);
+					newUser.local.firstname = req.body.firstname;
+					newUser.local.lastname = req.body.lastname;
+					newUser.local.telephone = req.body.telephone;
+					newUser.local.admin = "staff";
+
+					console.log(newUser);
+
+					newUser.save(function(err){
+						if(err)
+							throw err;
+				        req.flash('info', 'staff has been added successfully');
+						return done(null, newUser);
+					})
 				}
 			})
 
@@ -119,7 +187,7 @@ module.exports = function(passport) {
 	},
 	function(req, email, password, done){
 		process.nextTick(function(){
-			User.findOne({ 'local.email': email, 'local.emailConfirmToken': undefined}, function(err, user){
+			User.findOne({ 'local.email': email, 'local.emailConfirmToken': undefined, 'local.mobileOTP' : undefined}, function(err, user){
 				if(err)
 					return done(err);
 				if(!user)
