@@ -1,7 +1,7 @@
 # Co-Op-Management-System
 
 ## References
-* [W3Schools](https://www.w3schools.com/) - HTML, CSS, JavaScript, BootStrap
+* [W3Schools](https://www.w3schools.com/) - HTML, CSS, JavaScript, JQuery, Ajax, 
 * [Materialize CSS](http://materializecss.com/) - Library to use for designing.
 
 ## Aim 
