@@ -1,102 +1,49 @@
-since we do not know that the order db will remain permanant or not,
-therefore we save a permanat instance of it in the user's orderlist field.
+# Co-Op-Management-System
 
+## References
+* [W3Schools](https://www.w3schools.com/) - HTML, CSS, JavaScript, JQuery, Ajax, 
+* [Materialize CSS](http://materializecss.com/) - Library to use for designing.
 
+## Aim 
+* To build an online system that helps us to buy, pay and order things from the Co-Op Society.
+* The idea is to transform the coop into an online shopping market. 
+* The app will let us know as to what is available in the co-op and what is not. 
+* So we don’t have to search out for things out there and waste our time to go till there and find that the item we wish to purchase is available or not!
 
-add id's to the sidenav.ejs according to the categories
+## About
+- A simple web app used to book buy/sell stuff.
+- **Back-End**: Nodejs
+- **Front-End**: HTML, CSS and JavaScript
+- **Database**: MongoDB
 
-ui
-link all links
-create team page
-change footer
-copyright to ccc
-get list from sir
-header align
-Remove all all-caps
-Add boys co op address
-Change Login page similar to IRIS
-Put NITK Logo as favicon
-Integrate Sign Up with IRIS (Contact Hrishi) -> Long term
-Change '/todo' page -> Terrible colours 
+## Installation
+- Fork this project to your GitHub account.
+- After forking, enter the following commands in your terminal.
+```bash
+git clone https://github.com/[your user_name]/Co-Op-Management-System
+cd Co-Op-Management-System
+```
 
-Change 'Profile' page
+## Contributing
+- Kindly check the [`CONTRIBUTING`](https://github.com/salman-bhai/Co-Op-Management-System/blob/master/CONTRIBUTING) to know more about how to contribute towards further developing this website.
+- The repository is open to contribution from all interested developers. Kindly send us Pull Requests with explanation as to what changes you have done.
+- Also, you can write to us by opening an [Issue](https://github.com/salman-bhai/Co-Op-Management-System/issues) and also solve a current issue if possible.
+- A detailed explanantion of how we came to building this software is maintained at the [Wiki](https://github.com/salman-bhai/Co-Op-Management-System/wiki) page.
+- This repository was created and currently maintained by @[salman-bhai](https://github.com/salman-bhai).
 
+## Concepts to be learned: 
+* Website Designing, HTML, CSS, Javascript
+* Backend:  Node.js
+ 
+## Final output: 
+* Online CoOp
+* Delivery system
 
-CHANGES
+## Team members:
+* Vanshika Gupta (Developer)
+* Sujith D Dixith (support)
+* Salman Shah (Mentor)
+* Hrishikesh Hiraskar (Mentor) 
 
-karnataka,surathkal
-name as nitk consumer's cooperative society
- enctype="multipart/form-data"
-
-
-
-app.post('/track_order', isLoggedIn, function(req, res) {
-  console.log(req.body);
-  Orders.findOne({ order_id : req.body.order_id } , function(err,result){
-    console.log(result);
-    if(err) throw err;
-    if(result == null){ req.flash('error','no such order id exists'); }
-    else{
-      Items.findOne({ item_no : req.body.item_no }, function(errr,item){
-        item.item_sales -= req.body.item_quantity;
-        item.save(function(err){
-          if(err) throw err;
-          console.log("item removed from sales");
-        }); 
-      });
-      for(var i=0; i<result.orderList.length; i++ ){
-        if(result.orderList[i].no == req.body.item_no){
-          if(result.orderList.length == 1)
-            result.status = "cancelled";
-          result.amount = result.amount - result.orderList[i].price*result.orderList[i].quantity;
-          result.orderList.splice(i,1);
-          result.save(function(err){
-           if(err) throw err;
-         });
-          req.flash('info','your order has been cancelled');
-        }
-      }
-      function getchange(list , done) {
-        var iteratorFcn = function(list, done) {
-          if(list.order_id == req.body.order_id && list.no == req.body.item_no){
-            console.log("condition matched");
-            list.status = "cancelled";
-            console.log(list);
-            console.log(list.status);
-            req.user.save(function(err){
-            if(err) throw err;
-            console.log("status of user history changed");
-          });
-            doneIteratingFcn();
-            return done(null,'done');
-          }
-        };
-
-        var doneIteratingFcn = function(err) {
-          if(err) throw err;
-          req.user.save(function(err){
-            if(err) throw err;
-            console.log("status of user history changed");
-          });
-          console.log(req.user.local.orderList);
-          done(null,'done');
-        };
-    // iteratorFcn will be called for each element in cart.
-    async.forEach( list , iteratorFcn, doneIteratingFcn);
-  }
-  getchange(req.user.local.orderList , function(err) {
-    if(err) {
-      throw err;
-    }
-    req.user.save(function(err){
-      if(err) throw err;
-      console.log("cancellung saved");
-      console.log(req.user.local.orderList);
-    })
-    req.flash('info','order cancelled successfully.');
-    res.redirect('/track_order');
-  });
-}
-});
-});
-
+## License
+- The software is registered under the [MIT License](https://github.com/salman-bhai/Co-Op-Management-System/blob/master/LICENSE)
