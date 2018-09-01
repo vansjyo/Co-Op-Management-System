@@ -14,11 +14,17 @@ var crypto = require('crypto');
 var fs = require('fs');
 var path = require('path');
 var busboy = require('connect-busboy');
+var compression = require('compression');
+var helmet = require('helmet');
+
  
 app.use(busboy());
+app.use(compression());
+app.use(helmet());
+
 
 var configDB = require('./config/database.js');
-mongoose.connect(configDB.url);
+mongoose.connect(configDB.url,{ useNewUrlParser: true });
 require('./config/passport')(passport);
 
 app.use('/assets',express.static('assets'));

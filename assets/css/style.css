@@ -1,7 +1,8 @@
 #back{
   background-color:#ECEFF1;}
 .bg{
-  background-color: #006064   !important;}
+  background-color: #006064   !important;
+}
 /*//#00897B*/
 .div0{
   background-color:#00695C;
@@ -206,7 +207,10 @@ align-content: flex-start;}
   margin-left:4%;
 }
 .nitk_size{
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: 900;
+  color: #616161;
+  letter-spacing: 2px;
 }
 .inline{
   display:inline;
@@ -217,7 +221,7 @@ footer.page-footer {
     background-color: #ee6e73;
 }
 h3 {
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   font: 20px "Lato", sans-serif;
   color: #111;
@@ -257,7 +261,23 @@ h3 {
 .small_text{
   font-size: 2px;
 }
+.capital{
+  text-transform: uppercase;
+}
+.camel{
+  text-transform: capitalize;
+}
+.getstart{
+  border: 2px solid grey;background-color: #0d1521;opacity: 0.7;
+}
+.heads{
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font: 23px "Lato", sans-serif;
+  font-weight: 900;
+  color: #424242;
 
+}
 
 
 /*<script>

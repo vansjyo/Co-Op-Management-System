@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>NITK COOPERATIVE SOCIETY | NITK ONLINE DELIVERY</title>
+	<title>Orders List | NITK ONLINE DELIVERY</title>
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width" initial-scale="1.0">
@@ -45,87 +45,93 @@
 	<main>
 		<style>
 		td, th {
-    padding: 3px 5px;
-}
+			padding: 3px 5px;
+		}
 	</style>
 
-		<h3 class="coll margin70"> Orders List</h3>
-		<div class="divider"></div><br>
+	<div class="coll margin70 heads"><i class="material-icons">list_alt</i> Orders List</div>
+	<div class="divider"></div><br>
+	<div class="row center margin10">
+		<% for(i= orders.length-1; i>=0 ; i--){%>
+		<% var lastten = orders[i].telephone.substr(orders[i].telephone.length - 10); %>
+		<div class="col s12 m3">
+			<div class="card grey lighten-5 coll">
+				<div class="order_i small_text"><%= orders[i].email %></div>
+				<div class="cyan lighten-4 order_id"><%= orders[i].order_id %></div>
+				<div style="overflow: hidden;"><%= orders[i].firstname %> <%= orders[i].lastname %></div>
+				<div><%= lastten %></div>
+				<div><%= orders[i].address %></div>
+				<button id="list" class="btn cyan darken-3">View</button>
+				<button id="delist" class="btn cyan darken-3">Hide</button>
+					<table id="drop" class="responsive-table bordered" style="display:none;">
+						<tr>
+							<th>Item No.</th>
+							<th>Item</th>
+							<th>Quantity</th>
+						</tr>
+						<%orders[i].orderList.forEach(item => {%>
+						<tr>
+							<td><%= item.no %></td>
+							<td><%= item.item %></td>
+							<td><%= item.quantity %></td>
+						</tr>
+						<% }); %>
+						<tr>
+							<td colspan="2">Current Status</td>
+							<td><%= orders[i].status %></td>
+						</tr>
+					</table> 
+				<select id="<%= orders[i].order_id %>">
+					<option value="order placed" disabled selected>Change order status</option>
+					<option value="dispatched">Dispatched</option>
+					<option value="delivered">Delivered</option>
+					<option value="cancelled">Cancelled</option>
+				</select>
+				<a class="chip waves-effect waves-light" id="status">Send Status</a>
+				<% if(orders[i].status=="delivered"){ %> 
+				<i class="material-icons cyan-text text-darken-4">check_circle</i>
+				<% } %>
+				<% if(orders[i].status=="cancelled"){ %> 
+				<i class="material-icons red-text text-darken-4">cancel</i>
+				<% } %>
+				<% if(orders[i].status=="dispatched"){ %> 
+				<i class="material-icons">airport_shuttle</i>
+				<% } %>
 
-		<div class="row center margin10">
-			<% for(i= orders.length-1; i>=0 ; i--){%>
-			<div class="col s12 m3">
-				<div class="card grey lighten-5 coll">
-						OrderID:
-						<div class="cyan lighten-4 order_id"><%= orders[i].order_id %></div>
-						<table class="responsive-table bordered">
-							<tr>
-								<th>Name</th>
-								<th>Mobile No.</th>
-								<th>Address</th>
-							</tr>
-							<tr>
-								<td><%= orders[i].firstname %> <%= orders[i].lastname %></td>
-								<td><%= orders[i].telephone %></td>
-								<td><%= orders[i].address %></td>
-								
-							</tr>
-							<tr>
-								<th>Item No.</th>
-								<th>Item</th>
-								<th>Quantity</th>
-							</tr>
-							<%orders[i].orderList.forEach(item => {%>
-							<tr>
-								<td><%= item.no %></td>
-								<td><%= item.item %></td>
-								<td><%= item.quantity %></td>
-							</tr>
-							<% }); %>
-							<tr>
-								<td colspan="2">Current Status</td>
-								<td><%= orders[i].status %></td>
-							</tr>
-						</table> 
-						<select id="<%= orders[i].order_id %>">
-							<option value="order placed" disabled selected>Change order status</option>
-							<option value="dispatched">Dispatched</option>
-							<option value="delivered">Delivered</option>
-							<option value="cancelled">Cancelled</option>
-						</select>
-						<a class="chip waves-effect waves-light" id="status">Send Status</a>
-						<% if(orders[i].status=="delivered"){ %> 
-						<i class="material-icons cyan-text text-darken-4">check_circle</i>
-						<% } %>
-						<% if(orders[i].status=="cancelled"){ %> 
-						<i class="material-icons red-text text-darken-4">cancel</i>
-						<% } %>
-
-				</div>
 			</div>
-			<% }%>
 		</div>
-	</main>
+		<% }%>
+	</div>
+</main>
 
 
 
 
-	<!-- footer -->
-	<% include partials/footer.ejs %>
-	<!-- ////footer -->
+<!-- footer -->
+<% include partials/footer.ejs %>
+<!-- ////footer -->
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-	<script src="/assets/js/jquery.flexslider.js"></script>
-	<script src="/assets/js/main.js"></script>
-	<script src="/assets/js/orderslist.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			$('select').material_select();
-		});
-	</script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="/assets/js/jquery.flexslider.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/orderslist.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('select').material_select();
+	});
+</script>
+<script type="text/javascript">
+	$("button#list").click(function(){
+       $(this).siblings("table#drop").show();
+});
+	$("button#delist").click(function(){
+       $(this).siblings("table#drop").hide();
+});
+</script>
+
 
 </body>
 </html>

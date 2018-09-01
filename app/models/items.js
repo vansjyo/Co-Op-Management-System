@@ -10,7 +10,10 @@ var itemsSchema = mongoose.Schema({
         item_category: String,
         item_collection: String,
         item_url: String,
-        item_changes: Array
+        item_changes: Array,
+        item_enable: Number,
+        item_defect: Number,
+        item_CP: Number
 });
 
 module.exports = mongoose.model('Items', itemsSchema);
