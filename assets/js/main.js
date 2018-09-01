@@ -25,7 +25,7 @@ if ( $(window).width() > 1024) {
 else {
  document.getElementById("main_head").innerHTML="NITK Consumer's Co-op"; 
  document.getElementById("dis").style.display="block";
- document.getElementById("search").style.marginLeft="30%";
+ //document.getElementById("search").style.marginLeft="30%";
  $("div.img2").css("display", "none");
  $("div.img3").css("display", "none");
  $("div#foot").addClass("center");
@@ -114,3 +114,18 @@ $('.searchher').autocomplete({
             $("#search").val(ui.item.label);
         }
     });
+
+$('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
+
+$(document).ready(function(){
+  $('.parallax').parallax();
+});

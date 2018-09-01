@@ -2,7 +2,7 @@
    <html>
    <head>
 
-   	<title>PROFILE | ONLINE DELIVERY</title>
+   	<title>Account Settings | ONLINE DELIVERY</title>
 
    	<meta charset="UTF-8">
    	<meta name="viewport" content="width=device-width" initial-scale="1.0">
@@ -26,11 +26,11 @@
   <body class="grey lighten-5">
 
     <!-- header  -->
-    <% include partials/header.ejs %>
+    <%- include('partials/' + head) %>
     <!-- ////header -->
 
     <!-- side nav menu -->
-    <% include partials/slide_out_nav.ejs %>
+    <%- include('partials/' + slide) %>
     <!-- ////side nav menu -->
 
     <main>
@@ -45,7 +45,7 @@
 
      <div class="container">
        <div class="row profile pad30">
-        <h3>Account Settings</h3>
+        <h3><i class="material-icons">settings</i>Account Settings</h3>
         <div class="divider"></div><br>
         <div class="col s12 m7 margin"> 
           <h6 class="coll"><i class="material-icons">input</i> Change Password</h6>
@@ -89,6 +89,7 @@
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <script src="/assets/js/jquery.flexslider.js"></script>
   <script src="/assets/js/main.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>

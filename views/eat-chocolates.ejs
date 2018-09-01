@@ -2,7 +2,7 @@
    <html>
    <head>
 
-    <title>CHOCOLATES | NITK ONLINE DELIVERY</title>
+    <title>Chocolates | NITK ONLINE DELIVERY</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" initial-scale="1.0">
@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/buypages.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
+   
   </head>
 
-  <body class="cyan lighten-5">
+  <body class="white">
+
 
     <!-- header  -->
     <% include partials/buyheader.ejs %>
@@ -49,39 +49,54 @@
         </div>
       <% } %>
 
-      <h5 class="coll acme margin10 cyan-text text-darken-4"><b> CHOCOLATES</b></h5>
+      <h5 class="coll acme margin10 cyan-text text-darken-4"><b> CHIPS</b></h5>
       <div class="divider"></div><br>
 
 
-      <div class="row container">
+      <div class="row">
         <%chocolates.forEach(chip => {%>
+        <% var img_name = "/assets/images/" + chip.item_name + ".jpg" %>
 
-        <div class="col m4" id="items">
+        <div class="col m3" id="items">
           <div class="card-panel" id="me">
-            <center><img class="responsive-img" src="<%= chip.email %>"></center>
-            <div class="card-content" id="she">
+              <a class="modal-trigger center" href="#modal1"><img id="get_img" alt="<%= chip.item_name %>" class="responsive-img" src="<%= img_name %>" width="150px" height="150px"></a>
+              <div class="card-content" id="she">
               <div class="divider"></div>
-              <div class="chip margin10">item info</div>
-              <span class="item_name"><%= chip.item_name %></span><br>
-              <div class="chip margin10">quantity left</div>
-              <span class="quantity_left orange-text"><%= chip.quantity_left %></span><br>
-              <div class="chip margin10">Price</div>
-              <span class="item_price orange-text"><%= chip.price %></span><br>
-              <span class="item_no white-text"><%= chip.index %></span>
-              <a class="chip right waves-effect waves-light teal accent-4" id="clicktoadd">Add to cart</a>
+              <span class="item_name capital"><%= chip.item_name %></span><br>
+              <div class="chip margin10 camel">quantity left</div>
+              <span class="quantity_left"><%= chip.item_quantity %></span><br>
+              <div class="chip margin10 camel">Price(&#x20B9;)</div>
+              <span class="item_price"><%= chip.item_price %></span><br>
+              <span class="item_no white-text"><%= chip.item_no %></span>
+              <a class="chip right waves-effect waves-light teal accent-4 white-text" id="clicktoadd">Add to cart</a>
               <br>
             </div>
           </div>
         </div>
+        
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+        <div class="modal-content">
+        <h3 class="center" id="fetch_imgname"></h3>
+        <center><img id="push_img" class="responsive-img"></center>
+        </div>
+        </div>
+  
 
         <% });%>
       </div>
+    </main>
 
     
-    </main>
 
     <!-- footer -->
     <% include partials/footer.ejs %>
+    <!-- <div id="myModal" class="modal">
+    <i class="material-icons close right">close</i>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+    </div> -->
     <!-- ////footer -->
 
 
@@ -95,7 +110,25 @@
       $("#chocolates").addClass("teal");
       $("#chocolates").addClass("darken-1");
       $("#eatables").addClass("active");
+      $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+      $('#modal1').openModal();
+      $('#modal1').closeModal();
     </script>
+
+    <script type="text/javascript">
+      $("img#get_img").on('click',function(){ 
+        var img_src = this.src;
+        var img_alt = $(this).attr('alt');
+        console.log(img_src);
+        $("img#push_img").attr('src',img_src);
+        $("#fetch_imgname").html(img_alt);
+      });
+
+    </script>
+    
     
 
   </body>

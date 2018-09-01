@@ -26,7 +26,7 @@
 
 .bg-img {
     /* The image used */
-    background-image: url("/assets/images/profileback.jpeg");
+    background-image: url("/assets/images/profileback2.jpeg");
 
     min-height: 380px;
 
@@ -56,4 +56,16 @@
 }
 .show{
     display: block;
+}
+
+.editit{
+    background-color:Transparent;
+    border:1px #eeeeee solid;
+}
+.edit_form{
+    display:none;
+    border: 1px grey solid;
+    padding:20px;
+    background-color:Transparent;
+    opacity: 0.8;
 }

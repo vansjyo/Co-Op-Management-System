@@ -18,10 +18,11 @@
 	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
 	<link rel="stylesheet" href="/assets/css/parallax.css" type="text/css" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<style>
-
-
-</style>
+    <style type="text/css">
+    	.bg{
+              background-color: #006064   !important;
+              background-image: url('/assets/images/back1.png')  !important;}
+    </style>
 
 </head>
 
@@ -29,20 +30,42 @@
 
 
 	<!-- header  -->
-	<% include partials/header.ejs %>
+	<%- include('partials/' + head) %>
 	<!-- ////header -->
 	
 
 	<!-- side nav menu -->
-	<% include partials/slide_out_nav.ejs %>
+	<%- include('partials/' + slide) %>
 	<!-- ////side nav menu -->
 
 	<!-- center image -->
-	<div class="parallax img1">
-		<div class="caption">
-			<span class="border">NITK CONSUMER'S COOPERATIVE SOCIETY</span>
+	<div class="parallax-container center valign-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 white-text">
+					
+					<p><h3 class="white-text">Welcome To The</h3></p>
+					<p><span class="border">NITK CONSUMERS' COOPERATIVE SOCIETY</span></p>
+					<img src="/assets/images/shop1.png" width="150px" height="150px" style="opacity: 0.6"><br>
+					<a href="/categories" class="waves-effect waves-light btn-large getstart">Get Started Now</a>
+
+				</div>
+			</div>
 		</div>
+
+		<div class="parallax">
+			<img src="/assets/images/back1.png" style="opacity: 0.8">
+		</div>
+
 	</div>
+
+
+	<!-- <div class="parallax img1">
+		<div class="caption">
+			<img src="/assets/images/shop.png"><
+			<span class="border">NITK CONSUMERS' COOPERATIVE SOCIETY</span>
+		</div>
+	</div> -->
 	<!-- ////center image -->
 
 	<main>
@@ -59,7 +82,7 @@
 				<div class="card-content">
 					<div class="row">
 						<div class="col s12 m6 margin">
-							<div class="card z-depth-4 cyan lighten-2">
+							<div class="card z-depth-4 cyan lighten-1">
 								<div class="card-content">
 									<span class="card-title acme"><h3>Welcome</h3></span>
 									<p>To The NITK cooperative society's online service. Here you'll get everything what you had been missing for years.An online shopping store in your college.</p>
@@ -130,10 +153,19 @@
 	</main>
 
 
-	<div class="parallax img2">
-		<div class="caption">
-			<span class="border">SERVICES</span>
+	<div class="parallax-container center valign-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 white-text">
+					<span class="border">SERVICES</span>
+				</div>
+			</div>
 		</div>
+
+		<div class="parallax">
+			<img src="/assets/images/back1(14).jpeg">
+		</div>
+
 	</div>
 
 
@@ -162,7 +194,7 @@
 			<div class="col s12 m4">
 				<div class="card z-depth-4 cyan lighten-2">
 					<div class="card-content">
-						<div class="card-title span1"><i class="material-icons large grey-text text-darken-3">shopping_basket</i></div>
+						<div class="card-title span1"><i class="material-icons large grey-text text-darken-3">motorcycle</i></div>
 						<br><p>Now wait till our order arrives at your place and then you're good to go. Happy Shopping!</p> <br>  
 
 					</div>  
@@ -173,10 +205,19 @@
 		<!-- ////card 02 -->
 	</main>
 
-	<div class="parallax img3">
-		<div class="caption">
-			<span class="border">HAPPY SHOPPING</span>
+	<div class="parallax-container center valign-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 white-text">
+					<span class="border">HAPPY SHOPPING!</span>
+				</div>
+			</div>
 		</div>
+
+		<div class="parallax">
+			<img src="/assets/images/back1(12).jpg">
+		</div>
+
 	</div>
 
 
@@ -200,9 +241,14 @@
 	<script type="text/javascript">
 		if ( $(window).width() < 1200){
 			document.getElementById("fav").style.display="none";}
+		</script>
+		<script type="text/javascript">
+			$("#act_home").addClass("active");
+			$(document).ready(function(){
+				$('.parallax').parallax();
+			});
 
 		</script>
-
 
 	</body>
 	</html>

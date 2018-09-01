@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>MY CART | NITK ONLINE DELIVERY</title>
+  <title>My Cart | NITK ONLINE DELIVERY</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width" initial-scale="1.0">
   <meta name="description" content="online coop service nitk">
@@ -9,25 +9,14 @@
 
   <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" type="text/css" href="/assets/css/todostyle.css">
-   <link rel="stylesheet" type="text/css" href="/assets/css/parallax.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/parallax.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC:700" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
-    <title>MY CART | NITK ONLINE DELIVERY</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" initial-scale="1.0">
-    <meta name="description" content="online coop service nitk">
-    <meta name="keywords" content="nitk online coop">
 
-    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/todostyle.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC:700" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
 </head>
 <body>
 
@@ -43,8 +32,8 @@
            <li><a href="/home" style="font-size:12px;">Home</a></li> 
            <li><a href="/categories" style="font-size:12px;">Categories</a></li> 
            <li><a href="/profile" style="font-size:12px;">Profile</a></li> 
-           <li><a href="#" class="dropdown-button" data-activates='dropmore' data-beloworigin="true"><i class="material-icons" style="display:inline;font-size:17px;">arrow_drop_down</i></a></li> 
-           <!-- Dropdown Structure for more-->
+           <li><a href="#" class="dropdown-button" data-activates='dropmore' data-beloworigin="true"><i class="material-icons" style="font-size:17px;">arrow_drop_down</i></a></li> 
+           
            <ul id='dropmore' class='dropdown-content'>
              <li><a href='/track_order'>Track Order</a></li>
              <li><a href='/contact_us'>Contact</a></li>
@@ -126,7 +115,7 @@
 <% if(user.local.todo.length) { %>
 <div class="row">
 
-  <a href="/placeorder"><button class="btn waves-effect waves-light buynow cyan darken-4" id="buy" type="submit">BUY NOW
+  <a href="/placeorder"><button class="btn waves-effect waves-light buynow" id="buy" type="submit">BUY NOW
   </button></a>
 </div>
 <% } %><br><br><br>
@@ -144,14 +133,26 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script src="/assets/js/jquery.flexslider.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="/assets/js/todo-list.js"></script>
 <script src="/assets/js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 <script type="text/javascript">
   if ( $(window).width() < 993){
     document.getElementById("fav").style.display="none";
     document.getElementById("fav1").style.display="none";}
+    $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
 
   </script>
 

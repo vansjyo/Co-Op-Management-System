@@ -2,7 +2,7 @@
    <html>
    <head>
 
-   	<title>PROFILE | ONLINE DELIVERY</title>
+   	<title>Place Order | ONLINE DELIVERY</title>
 
    	<meta charset="UTF-8">
    	<meta name="viewport" content="width=device-width" initial-scale="1.0">
@@ -53,7 +53,7 @@
      <div class="container margin70">
       <h3>Order Summary</h3>
       <div class="divider"></div>
-      <div class="row pad30 margin z-depth-2 profile grey lighten-4"> 
+      <div class="row pad30 margin profile"> 
         <table class="highlight bordered">
           <thead>
             <tr>
@@ -88,7 +88,7 @@
 
           <div class="col s12 m6 margin deco1">
             <form method="post" action="/placeorder">
-              <p><i class="material-icons">input</i> Please enter a valid address for order delivery:</p>
+              <p><i class="material-icons">home</i> Please enter a valid address for order delivery:</p>
               <div class="input-field coll">
                 <label for="address">edit below if any change in address</label>
                 <input type="text" name="address" class="validate" value="<%=user.local.address %>" required />

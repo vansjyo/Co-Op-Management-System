@@ -2,7 +2,7 @@
    <html>
    <head>
 
-   	<title>PROFILE | ONLINE DELIVERY</title>
+   	<title>Profile | ONLINE DELIVERY</title>
 
    	<meta charset="UTF-8">
    	<meta name="viewport" content="width=device-width" initial-scale="1.0">
@@ -14,24 +14,29 @@
    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Suez+One">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
    	<link rel="stylesheet" href="/assets/css/flexslider.css" type="text/css">
    	<link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/profile.css">
     <link rel="stylesheet" href="/assets/css/parallax.css" type="text/css" />
    	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+     <style type="text/css">
+      .bg{
+              background-color: #006064   !important;
+              background-image: url('/assets/images/profileback2.jpeg')  !important;}
+    </style>
    </head>
    <body class="grey lighten-5">
 
 
    	<!-- header  -->
-   	<% include partials/header.ejs %>
+   	<%- include('partials/' + head) %>
    	<!-- ////header -->
 
 
    <!-- side nav menu -->
-  <% include partials/slide_out_nav.ejs %>
-  <!-- ////side nav menu -->
+   <%- include('partials/' + slide) %>
+   <!-- ////side nav menu -->
 
      <main>
 
@@ -49,18 +54,20 @@
       <span class="border">PROFILE</span>
     </div>
     <div class="center">
+      <% var lastten = user.local.telephone.substr(user.local.telephone.length - 10); %>
       <h4 class="grey-text text-lighten-1 profiledesk"><%= user.local.firstname %> <%= user.local.lastname %></h4>
       <h6 class="grey-text text-lighten-1">Email:<%= user.local.email %></h6>
-      <h6 class="grey-text text-lighten-1">Phone: <%= user.local.telephone %></h6>
-      <button class="btn chip waves-effect waves-light grey-text" style="background-color:Transparent;border:1px #eeeeee solid;" id="getedit">edit info
-        <i class="material-icons right">send</i>
+      <h6 class="grey-text text-lighten-1">Phone: <%= lastten %></h6>
+      <button class="btn chip waves-effect waves-light grey-text editit" id="getedit">
+        <i class="material-icons">edit</i>Edit Info
       </button>
+      <br><br><br><br>
     </div>
 
          </div>
 
 
-         <div class="col s12 z-depth-2" style="display:none;border: 1px grey solid;padding:20px;background-color:Transparent;opacity: 0.8" id="prof2"> 
+         <div class="col s12 z-depth-4 edit_form" id="prof2"> 
            <form action="/profile" method="post" class="grey-text text-lighten-1">
             <h3 class="white-text profiledesk">Edit Profile</h3>
               First Name
@@ -77,11 +84,11 @@
               </div><br>
               
            <button class="btn waves-effect waves-light cyan darken-3" type="submit">edit info
-            <i class="material-icons right">send</i>
+            <i class="material-icons right">edit</i>
           </button>
         </form>
         <br>
-        <button class="btn chip waves-effect waves-light grey-text" style="background-color:Transparent;border:1px #eeeeee solid;" id="getprofile">Cancel
+        <button class="btn chip waves-effect waves-light grey-text editit" id="getprofile">Cancel<i class="material-icons">cancel</i>
       </button>
       </div>
     </div>
@@ -134,6 +141,7 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="/assets/js/jquery.flexslider.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -152,6 +160,9 @@
      document.getElementById("prof1").style.display="block";
 });
   </script>
+<script type="text/javascript">
+        $("#act_profile").addClass("active");
 
+</script>
   </body>
   </html>
