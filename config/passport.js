@@ -85,7 +85,7 @@ module.exports = function(passport) {
 								service: 'gmail',
 								auth: {
 									user: 'samplemailernitk@gmail.com',
-									pass: '1234abcd!@#$'
+									pass: '************'
 								}
 							}); 
 							var mailOptions = {
