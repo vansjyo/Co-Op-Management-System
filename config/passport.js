@@ -124,7 +124,7 @@ module.exports = function(passport) {
 
 						},
 						function(token, user, done) {
-							const sendOtp = new SendOtp('187833AUFFaxWQm5a2ff60c');
+							const sendOtp = new SendOtp('***********');
                             sendOtp.setOtpExpiry('2'); //in minutes
                             sendOtp.send(user.local.telephone,"PRIIND", token , function (error, data, response) {
                 	        req.flash('info', 'An otp has been sent to ' + user.local.telephone + '.  Please enter for successful placing of order          ');
