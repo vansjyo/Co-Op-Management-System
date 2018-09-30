@@ -24,7 +24,7 @@ var b=req.params.search;
 var category = req.params.categ;
 if(category!=="all"){
 db.collection('items', function(err, collection) {
-      collection.find({item_name: new RegExp('^' + b) ,item_category: category }).toArray(function(err, items) {
+      collection.find({item_name: new RegExp('^' + b) ,item_category: category, item_enable :1}).toArray(function(err, items) {
                 console.log(items);
                 res.jsonp(items);
             });
@@ -32,7 +32,7 @@ db.collection('items', function(err, collection) {
 }
 else{
     db.collection('items', function(err, collection) {
-      collection.find({item_name: new RegExp('^' + b)}).toArray(function(err, items) {
+      collection.find({item_name: new RegExp('^' + b),  item_enable :1}).toArray(function(err, items) {
                 console.log(items);
                 res.jsonp(items);
             });

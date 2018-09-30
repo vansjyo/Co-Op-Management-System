@@ -36,9 +36,28 @@ app.get('/', function(req, res){
 //#3
 app.get('/login', function(req, res){
   if(req.user== undefined){
-    res.render('login.ejs', { message: req.flash('loginMessage') });}
-    else {res.render('home.ejs');}
-  });
+    res.render('login.ejs', { message: req.flash('loginMessage') });
+  }
+  else {
+    var head,slide;
+    if(req.user.local.admin == "owner"){
+      head = "adminheader.ejs";
+      slide = "admin_slide_out_nav";
+    }
+    else if(req.user.local.admin == "staff"){
+      head = "staffheader.ejs";
+      slide = "staff_slide_out_nav.ejs";
+    }
+    else if(req.user.local.admin == null){
+      head = "header.ejs";
+      slide = "slide_out_nav.ejs";
+    }
+    else{
+      res.end();
+    }
+    res.render('home.ejs', { user : req.user , head : head , slide : slide });
+  }
+});
 
 //#4
 app.get('/contact', function(req, res){
@@ -53,13 +72,16 @@ app.get('/signup', function(req, res){
 
 app.get('/home',isLoggedIn, function(req, res){
   var head,slide;
+  console.log(req.user.local.admin);
   if(req.user.local.admin == "owner"){
     head = "adminheader.ejs";
-    slide = "admin_slide_out_nav";}
+    slide = "admin_slide_out_nav";
+  }
   else if(req.user.local.admin == "staff"){
     head = "staffheader.ejs";
-    slide = "staff_slide_out_nav.ejs";}
-  else if(req.user.local.admin == ""){
+    slide = "staff_slide_out_nav.ejs";
+  }
+  else if(req.user.local.admin == null){
     head = "header.ejs";
     slide = "slide_out_nav.ejs";
   }
@@ -84,18 +106,21 @@ app.get('/home',isLoggedIn, function(req, res){
 //#7
 app.get('/profile', isLoggedIn, function(req, res){
   var head,slide;
-   if(req.user.local.admin == "owner"){
+  if(req.user.local.admin == "owner"){
     head = "adminheader.ejs";
-    slide = "admin_slide_out_nav.ejs";}
-    else if(req.user.local.admin == "staff"){
+    slide = "admin_slide_out_nav.ejs";
+  }
+  else if(req.user.local.admin == "staff"){
     head = "staffheader.ejs";
-    slide = "staff_slide_out_nav.ejs";}
-   else if(req.user.local.admin == ""){
+    slide = "staff_slide_out_nav.ejs";
+  }
+  else if(req.user.local.admin == null){
     head = "header.ejs";
-    slide = "slide_out_nav.ejs";}
-   else{
-      res.end();
-    }
+    slide = "slide_out_nav.ejs";
+  }
+  else{
+    res.end();
+  }
   res.render('profile.ejs', { user : req.user , head : head , slide : slide});
 });
 
@@ -115,7 +140,23 @@ app.get('/admin', isLoggedIn, function(req, res){
 
 //#10
 app.get('/categories', isLoggedIn, function(req, res){
-  res.render('categories.ejs', { user: req.user });
+  var head,slide;
+  if(req.user.local.admin == "owner"){
+    head = "adminheader.ejs";
+    slide = "admin_slide_out_nav.ejs";
+  }
+  else if(req.user.local.admin == "staff"){
+    head = "staffheader.ejs";
+    slide = "staff_slide_out_nav.ejs";
+  }
+  else if(req.user.local.admin == null){
+    head = "header.ejs";
+    slide = "slide_out_nav.ejs";
+  }
+  else{
+    res.end();
+  }
+  res.render('categories.ejs', { user: req.user , head : head , slide : slide});
 });
 
 //#11
@@ -156,7 +197,7 @@ app.get('/eat-chocolates',  isLoggedIn, (req, res) => {
 app.get('/itemslist',  isLoggedIn, (req, res) => {
   if(req.user.local.admin == "owner" || "staff"){
     var items= [];
-    Items.find({},function(err, result) {
+    Items.find({ item_enable:1},function(err, result) {
      if (err) throw err;
      items = result;
      res.render('itemslist', {items: items });
@@ -166,14 +207,14 @@ app.get('/itemslist',  isLoggedIn, (req, res) => {
 });
 
 //#15
-app.get('/eat-chocolates', isLoggedIn, (req, res) => {
-  res.render('eat-chocolates');
-});
+// app.get('/eat-chocolates', isLoggedIn, (req, res) => {
+//   res.render('eat-chocolates');
+// });
 
 //#16
-app.get('/eat-chips', isLoggedIn, (req, res) => {
-  res.render('eat-chips');
-});
+// app.get('/eat-chips', isLoggedIn, (req, res) => {
+//   res.render('eat-chips');
+// });
 
 
 //#17
@@ -211,8 +252,7 @@ app.get('/confirm/:token', function(req, res, done) {
     user.save(function(err) {
       if(err)
         return done(err);
-      req.flash('success','email has been confired. now you may log in.');
-      return done(null); 
+      return done(null, user , req.flash('success', 'email has been confired. now you may log in'));
     });
     res.render('login');
   });
@@ -230,7 +270,7 @@ app.get('/placeorder', isLoggedIn, (req,res) =>{
   function getorder(cart , done) {
     var enable=1;
     var amount=0;
-   
+
     var iteratorFcn = function(cart, done) {
       Items.findOne({ item_no : cart.no }, function(err, result){
         console.log(result);
@@ -241,7 +281,7 @@ app.get('/placeorder', isLoggedIn, (req,res) =>{
         if(result == null){
           return done(null,false,req.flash('info', "all items now not available"));
         }
-        if( result.item_quantity-result.item_sales >= cart.quantity ){
+        if( result.item_quantity-result.item_sales-result.item_defect >= cart.quantity ){
           cart.status = "available";
           cart.item = result.item_name;
           cart.price = result.item_price;
@@ -272,7 +312,7 @@ app.get('/placeorder', isLoggedIn, (req,res) =>{
         req.user.local.todo.forEach(x => {
           x.amount = 0;
         });
-        req.user.save(function(err){
+        User.findOneAndUpdate({ _id: req.user.local._id }, { runValidators: true }, function(err){
           if(err) throw err;});
         return done(null,false,req.flash('info', "all items not available"));
       }
@@ -288,7 +328,7 @@ app.get('/placeorder', isLoggedIn, (req,res) =>{
       throw err;
       return;
     }
-    req.user.save(function(err){
+    User.findOneAndUpdate({ _id: req.user.local._id }, { runValidators: true }, function(err){
       if(err) throw err;
     })
     res.render('placeorder.ejs', {user:req.user});
@@ -320,7 +360,7 @@ app.get('/addstaff', isLoggedIn, function(req, res){
 app.get('/saleslist',  isLoggedIn, (req, res) => {
   if(req.user.local.admin == "owner"){
     var items= [];
-    Items.find({},function(err, result) {
+    Items.find({ item_enable : 1},function(err, result) {
      if (err) throw err;
      items = result;
      res.render('saleslist', {items: items });
@@ -390,11 +430,13 @@ app.get('/settings', isLoggedIn, function(req, res){
   var head,slide;
   if(req.user.local.admin == "owner"){
     head = "adminheader.ejs";
-    slide = "admin_slide_out_nav";}
+    slide = "admin_slide_out_nav";
+  }
   else if(req.user.local.admin == "staff"){
     head = "staffheader.ejs";
-    slide = "staff_slide_out_nav.ejs";}
-  else if(req.user.local.admin == ""){
+    slide = "staff_slide_out_nav.ejs";
+  }
+  else if(req.user.local.admin == null){
     head = "header.ejs";
     slide = "slide_out_nav.ejs";
   }
@@ -443,8 +485,8 @@ app.get('/sharad', function(req, res){
     console.log(a.results.length);
     console.log(a.results[1]);
     console.log(resultsObj);
-     res.render('sharad.ejs',{data : resultsObj.results});
-     
+    res.render('sharad.ejs',{data : resultsObj.results});
+
   })
   // scholar.profile('OHWQMuIAAAAJ')
   // .then(resultsObj => {
@@ -472,7 +514,7 @@ app.post('/deleteitem', isLoggedIn, function(req, res){
     });
 });
 
- 
+
 //#2*
 app.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/',
@@ -729,7 +771,7 @@ app.post('/placeorder', isLoggedIn, (req,res) =>{
           done(err);
           return;
         }
-        if( result.item_quantity-result.item_sales >= cart.quantity ){
+        if( result.item_quantity-result.item_sales-result.item_defect >= cart.quantity ){
           cart.status = "available";
           cart.item = result.item_name;
           cart.price = result.item_price;
@@ -756,7 +798,7 @@ app.post('/placeorder', isLoggedIn, (req,res) =>{
         });
         var x= new Date();
         var rand = Math.floor((Math.random()*1000)+1).toString();
-        var id= x.getHours().toString() + x.getMinutes().toString() + x.getSeconds().toString() + rand + '/'+ x.getDate().toString() + x.getMonth().toString() + x.getFullYear().toString(); 
+        var id= x.getHours().toString() + x.getMinutes().toString() + x.getSeconds().toString() + rand + req.user.local.firstname[0] + req.user.local.lastname[0] +'/'+ x.getDate().toString() + x.getMonth().toString() + x.getFullYear().toString(); 
         var order = new Orders({
           order_id : id,
           email: req.user.local.email,
@@ -851,7 +893,7 @@ app.post('/addstaff',isLoggedIn,  passport.authenticate('staff-signup', {
 app.post('/orderslist', isLoggedIn, function(req, res){
   console.log(req.body.order_id);
   console.log(req.body.order_status);
-console.log(req.body.order_email);
+  console.log(req.body.order_email);
   Orders.findOne({ order_id : req.body.order_id }, function(err, result){
     if(result == null){
       req.flash('error','No order found. Some error');
@@ -862,7 +904,7 @@ console.log(req.body.order_email);
         console.log(user);
         console.log(result);
         for(var i=0;i< result.orderList.length; i++){
-        user.local.orderList.unshift({order_id : result.order_id , no: result.orderList[i].no , item: result.orderList[i].item , quantity: result.orderList[i].quantity , price: result.orderList[i].price, amount: result.amount , status: req.body.order_status });         
+          user.local.orderList.unshift({order_id : result.order_id , no: result.orderList[i].no , item: result.orderList[i].item , quantity: result.orderList[i].quantity , price: result.orderList[i].price, amount: result.amount , status: req.body.order_status });         
         }
         user.save(function(err){
           if(err) throw err;
@@ -892,12 +934,14 @@ app.post('/itemslist', isLoggedIn, function(req, res , done){
       result.item_name = req.body.item_name;
       result.item_price = req.body.item_price;
       result.item_quantity = req.body.item_quantity;
+      result.item_defect = req.body.item_defect;
       result.item_category = req.body.item_category;
       result.item_sales = req.body.item_sales;
       var obj = {
         change_name : req.body.item_name,
         change_price : req.body.item_price,
         change_quantity : req.body.item_quantity,
+        change_defect : req.body.item_defect,
         change_sales : req.body.item_sales,
         change_category : req.body.item_category,
         change_remark : req.body.item_change,
@@ -1120,26 +1164,26 @@ app.post('/track_order', isLoggedIn, function(req, res) {
     if(err) throw err;
     if(result == null){ req.flash('error','no such order id exists'); }
     else{
-    async.parallel([
-  function (callback) {
+      async.parallel([
+        function (callback) {
     //function getchange(list , done) {
-          var iteratorFcn = function(list, done) {
-            if(list.order_id == req.body.order_id && list.no == req.body.item_no){
-              console.log("condition matched");
-              list.status = "cancelled";
-              req.user.markModified('local.orderList');
-              req.user.save(function(err){
-              if(err) throw err;
-              console.log("status of user history changed");
-              done(null,'done');
-              });
-            }
-          };
-
-          var doneIteratingFcn = function(err) {
+      var iteratorFcn = function(list, done) {
+        if(list.order_id == req.body.order_id && list.no == req.body.item_no){
+          console.log("condition matched");
+          list.status = "cancelled";
+          req.user.markModified('local.orderList');
+          req.user.save(function(err){
             if(err) throw err;
-            req.flash('info','order cancelled successfully.');
-          };
+            console.log("status of user history changed");
+            done(null,'done');
+          });
+        }
+      };
+
+      var doneIteratingFcn = function(err) {
+        if(err) throw err;
+        req.flash('info','order cancelled successfully.');
+      };
     // iteratorFcn will be called for each element in cart.
     async.forEach( req.user.local.orderList , iteratorFcn, doneIteratingFcn);
     callback(null,'three');
@@ -1147,12 +1191,12 @@ app.post('/track_order', isLoggedIn, function(req, res) {
   },
   function (callback) {
 
-     var iteratorFcn = function(item,done){
-          if(item.no == req.body.item_no){
-          if(result.orderList.length == 1)
-            result.status = "cancelled";
-          result.amount = result.amount - item.price*item.quantity;
-          item.status = "cancelled";
+   var iteratorFcn = function(item,done){
+    if(item.no == req.body.item_no){
+      if(result.orderList.length == 1)
+        result.status = "cancelled";
+      result.amount = result.amount - item.price*item.quantity;
+      item.status = "cancelled";
           // result.orderList.splice(i,1);
           result.save(function(err){
            if(err) throw err;
@@ -1161,10 +1205,10 @@ app.post('/track_order', isLoggedIn, function(req, res) {
            done(null,'done');
          });
         }
-    };
+      };
 
 
-     async.forEach(result.orderList , iteratorFcn , function(err){ if(err) throw err; console.log("order modiied")});
+      async.forEach(result.orderList , iteratorFcn , function(err){ if(err) throw err; console.log("order modiied")});
 
       
     // do some stuff ...
@@ -1172,25 +1216,25 @@ app.post('/track_order', isLoggedIn, function(req, res) {
   },
   function(callback){
     Items.findOne({ item_no : req.body.item_no }, function(err,item){
-        item.item_sales -= req.body.item_quantity;
-        item.save(function(err){
-          if(err) throw err;
-          console.log("item removed from sales");
-        }); 
-      });
+      item.item_sales -= req.body.item_quantity;
+      item.save(function(err){
+        if(err) throw err;
+        console.log("item removed from sales");
+      }); 
+    });
     callback(null, 'one');
     // do some stuff ...
     // callback(null, 'one');
   }
-],
+  ],
 // optional callback
 function (err, results) {
   // the results array will equal ['one','two']
   if (err) return next(err);
- res.redirect('/track_order');
+  res.redirect('/track_order');
 });
-}
-});
+    }
+  });
 
 });
 
