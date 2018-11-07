@@ -5,13 +5,14 @@ $(document).ready(function(){
       var itemName = $(this).parent().siblings().children("input.itemname").val();
       var itemNo = $(this).parent().siblings().children("input.itemno").val();
       var itemQuantity = $(this).parent().siblings().children("input.itemquantity").val();
+      var itemDefect = $(this).parent().siblings().children("input.itemdefect").val();
       var itemSales = $(this).parent().siblings().children("input.itemsales").val();
       var itemPrice = $(this).parent().siblings().children("input.itemprice").val();
       var itemCategory = $(this).parent().siblings().children("input.itemcategory").val();
       var itemChange = $(this).parent().siblings().children("input.itemchange").val();
 
   
-      var item = {item_no : itemNo, item_name : itemName, item_price : itemPrice, item_category :itemCategory ,item_quantity :itemQuantity, item_sales :itemSales, item_change : itemChange };
+      var item = {item_no : itemNo, item_name : itemName, item_price : itemPrice, item_defect : itemDefect, item_category : itemCategory ,item_quantity :itemQuantity, item_sales :itemSales, item_change : itemChange };
       $.ajax({
         type: 'POST',
         url: '/itemslist',
