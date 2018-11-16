@@ -1,5 +1,5 @@
 # Co-Op-Management-System
-An E-commerce web app for ordering and selling products built using node.js.
+An E-commerce web app for ordering and selling products built using node.js and MongoDB.
 
 ## References
 * [W3Schools](https://www.w3schools.com/) - HTML, CSS, JavaScript, JQuery, Ajax, 
