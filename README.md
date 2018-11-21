@@ -13,8 +13,8 @@ An E-commerce web app for ordering and selling products built using node.js and 
 
 ## About
 - A simple web app used to book buy/sell stuff.
-- **Back-End**: Nodejs
-- **Front-End**: HTML, CSS and JavaScript
+- **Back-End**: Node.js
+- **Front-End**: HTML, CSS, EJS and JavaScript
 - **Database**: MongoDB
 
 ## Installation
