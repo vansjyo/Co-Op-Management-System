@@ -2,7 +2,7 @@
 An E-commerce web app for ordering and selling products built using node.js and MongoDB database.
 
 ## References
-* [W3Schools](https://www.w3schools.com/) - HTML, CSS, JavaScript, JQuery, Ajax, 
+* [W3Schools](https://www.w3schools.com/) - HTML, CSS, JavaScript, JQuery, Ajax, Angular
 * [Materialize CSS](http://materializecss.com/) - Library to use for designing.
 
 ## Aim 
