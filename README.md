@@ -3,7 +3,7 @@ An E-commerce web app for ordering and selling products built using node.js and 
 
 ## References
 * [W3Schools](https://www.w3schools.com/) - HTML, CSS, JavaScript, JQuery, Ajax, Angular
-* [Materialize CSS](http://materializecss.com/) - Library to use for designing.
+* [Materialize CSS](http://materializecss.com/) - Library used for designing.
 
 ## Aim 
 * To build an online system that helps us to buy, pay and order things from the Co-Op Society.
