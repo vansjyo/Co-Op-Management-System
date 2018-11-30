@@ -64,7 +64,7 @@
               <div class="divider"></div>
               <span class="item_name capital"><%= chip.item_name %></span><br>
               <div class="chip margin10 camel">quantity left</div>
-              <span class="quantity_left"><%= chip.item_quantity %></span><br>
+              <span class="quantity_left"><%= chip.item_quantity - chip.item_defect %></span><br>
               <div class="chip margin10 camel">Price</div>
               <span class="item_price"><%= chip.item_price %></span><br>
               <span class="item_no white-text"><%= chip.item_no %></span>
