@@ -28,11 +28,11 @@
 
 
    	<!-- header  -->
-   	<% include partials/header.ejs %>
+   	<%- include('partials/' + head) %>
    	<!-- ////header -->
    	
    <!-- side nav menu -->
-   <% include partials/slide_out_nav.ejs %>
+   <%- include('partials/' + slide) %>
    <!-- ////side nav menu -->
 
    	<main>
