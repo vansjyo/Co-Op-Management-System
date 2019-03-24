@@ -14,6 +14,10 @@ An E-commerce web app for ordering and selling products built using node.js and 
 * Can monitor orders placed and change the status as the order is "cancelled","dispatched" or "delivered", which is visible to the user on his inteface as well.
 ## User Interface
 * Login, Signup with email and mobile OTP confirmation.
+* Explore, Add items to card, Place the order.
+* database is checked for the item details and availability at two steps tlll the final order is confirmed.
+* User can monitor the status of his order and cancel the order.
+* The purchase history and current ordres is displayed. 
 
 ## References
 * [W3Schools](https://www.w3schools.com/) - HTML, CSS, JavaScript, JQuery, Ajax, Angular
