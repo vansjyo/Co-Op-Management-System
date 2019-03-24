@@ -1,6 +1,20 @@
 # Co-Op-Management-System
 An E-commerce web app for ordering and selling products built using node.js and MongoDB database.
 
+# Incorporated features
+## Admin Interface
+* Login, access to all data using the interface
+* Access to monitor activity of staff, add a staff member, delete a staff member
+* Add items to database, delete items, edit the detais of the current items
+* Monitor the sales and cost(purchase) incurred, track of defective items, hence estimate of the total profit.
+* Monitor the current or orders in progress
+## Staff Interface
+* Login using credentials emailed to the staff member when admin adds a staff member to the database
+* Access to items and orders database, access to edit the item details, where there activity is logged to the database accessible to the admin.
+* Can monitor orders placed and change the status as the order is "cancelled","dispatched" or "delivered", which is visible to the user on his inteface as well.
+## User Interface
+* Login, Signup with email and mobile OTP confirmation.
+
 ## References
 * [W3Schools](https://www.w3schools.com/) - HTML, CSS, JavaScript, JQuery, Ajax, Angular
 * [Materialize CSS](http://materializecss.com/) - Library used for designing.
