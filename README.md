@@ -35,34 +35,44 @@ An E-commerce web app for ordering and selling products built using node.js and 
 - **Front-End**: HTML, CSS, EJS and JavaScript
 - **Database**: MongoDB
 
-## Installation
+## Installation and Set Up
 - Fork this project to your GitHub account.
 - After forking, enter the following commands in your terminal.
 ```bash
 git clone https://github.com/[your user_name]/Co-Op-Management-System
 cd Co-Op-Management-System
 ```
+Further, make sure you perform the follwing steps to make it work
+- Install nodejs and NPM from [here](https://nodejs.org/en/download/package-manager/)
+- Install and setup Mongodb from [here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
+- Run the following commands
+```bash
+cd /path-to-folder/Co-Op-Management-System
+npm install
+npm install mongoose --save (if npm install does not successfully install it)
+npm iinstall bcrypt --save (if bcrypt found broken)
+npm install -g node-gyp --save
+npm start (make sure mongodb is up and running)
+```
 
 ## Contributing
-- Kindly check the [`CONTRIBUTING`](https://github.com/salman-bhai/Co-Op-Management-System/blob/master/CONTRIBUTING) to know more about how to contribute towards further developing this website.
 - The repository is open to contribution from all interested developers. Kindly send us Pull Requests with explanation as to what changes you have done.
-- Also, you can write to us by opening an [Issue](https://github.com/salman-bhai/Co-Op-Management-System/issues) and also solve a current issue if possible.
-- A detailed explanantion of how we came to building this software is maintained at the [Wiki](https://github.com/salman-bhai/Co-Op-Management-System/wiki) page.
-- This repository was created and currently maintained by @[salman-bhai](https://github.com/salman-bhai).
+- Also, you can write to us by opening an [Issue](https://github.com/vansjyo/Co-Op-Management-System/issues) and also solve a current issue if possible.
+- A detailed explanantion of how we came to building this software is maintained at the [Wiki](https://github.com/vansjyo/Co-Op-Management-System/wiki) page.
+- This repository is created and currently maintained by @[vansjyo](https://github.com/salman-bhai).
 
 ## Concepts to be learned: 
 * Website Designing, HTML, CSS, Javascript
-* Backend:  Node.js
+* Backend: Node.js
  
 ## Final output: 
-* Online CoOp
+* Online Co-Op
 * Delivery system
 
 ## Team members:
-* Vanshika Gupta (Developer)
-* Sujith D Dixith (support)
-* Salman Shah (Mentor)
-* Hrishikesh Hiraskar (Mentor) 
+* Vanshika Gupta (Developer) @[vansjyo](https://github.com/vansjyo)
+* Salman Shah (Mentor) @[salman-bhai](https://github.com/salman-bhai)
+* Hrishikesh Hiraskar (Mentor) @[hrily](https://github.com/hrily)
 
 ## License
 - The software is registered under the [MIT License](https://github.com/salman-bhai/Co-Op-Management-System/blob/master/LICENSE)
