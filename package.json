@@ -21,7 +21,7 @@
     "formidable": "^1.2.0",
     "google-scholar-extended": "^1.0.1",
     "helmet": "^3.13.0",
-    "jquery-validation": "^1.17.0",
+    "jquery-validation": "^1.19.3",
     "mongo": "^0.1.0",
     "mongodb": "^2.2.36",
     "mongodb-core": "^3.0.9",
