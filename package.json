@@ -8,7 +8,7 @@
     "async": "^2.6.0",
     "autocomplete": "0.0.1",
     "bcrypt": "*",
-    "bson": "^1.0.6",
+    "bson": "^1.1.4",
     "busboy": "^0.2.14",
     "compression": "^1.7.3",
     "connect-busboy": "^0.0.2",
